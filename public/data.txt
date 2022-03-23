@@ -1,0 +1,79 @@
+[
+	{
+		id:1,
+		name:אבו קרינאת,
+		location:אבו קרינאת,
+		phone:4832715,
+		lan:ערבית,
+		sub:מחשבים,
+		aud:22,
+		age:13,
+		front:zoom
+	},
+	{
+		id:2,
+		name:אזורי אבן שמואל,
+		location:אבן שמואל,
+		phone:08-6811989,
+		lan:עברית,
+		sub:תכנות,
+		aud:32,
+		age:15,
+		front:front
+	},
+	{
+		id:3,
+		name:אשלים,
+		location:אופקים,
+		phone:08-9923004,
+		lan:צרפתית,
+		sub:מחשבים,
+		aud:15,
+		age:12,
+		front:front
+	},
+	{
+		id:4,
+		name:אופיר,
+		location:אילת,
+		phone:08-6315003,
+		lan:עברית,
+		sub:רפואה,
+		aud:16,
+		age:35,
+		front:zoom
+	},
+	{
+		id:5,
+		name:אולפנא לבנות,
+		location:אשדוד,
+		phone:08-8651029,
+		lan:עברית,
+		sub:מחשבים,
+		aud:32,
+		age:14,
+		front:front
+	},
+	{
+		id:6,
+		name:ישיבת חזון נחום,
+		location:בני ברק,
+		phone:03-5709929,
+		lan:ידיש,
+		sub:הייטק,
+		aud:22,
+		age:11,
+		front:front
+	},
+	{
+		id:7,
+		name:נורדאו,
+		location:נתניה,
+		phone:09-8650202,
+		lan:עברית,
+		sub:,תכנות,
+		aud:32,
+		age:16,
+		front:zoom
+	}
+]
