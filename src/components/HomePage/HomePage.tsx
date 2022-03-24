@@ -1,4 +1,3 @@
-import Header from '../Header/Header';
 import { Home } from './HomePage.styles';
 import VolunteerList from '../VolunteerList';
 
