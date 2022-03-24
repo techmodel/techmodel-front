@@ -4,14 +4,14 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
-  "parser": "babel-eslint",
+  "extends": ["plugin:react/recommended"],
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": 12,
-    "sourceType": "module"
+    "sourceType": "module",
   },
   "plugins": ["react"],
   "settings": {
@@ -40,6 +40,11 @@
     "consistent-return": "off",
     "no-plusplus": "off",
     "react/jsx-wrap-multilines": "off",
-    "max-len": ["warn", { "code": 150 }]
+    "max-len": ["warn", { "code": 150 }],
+    "react/jsx-filename-extension": [2, { "extensions": [".tsx"] }],
+    "react/jsx-closing-tag-location": "off",
+    "react/jsx-indent": "off",
+    "import/prefer-default-export": "off",
+    "object-curly-spacing": "off"
   }
 }

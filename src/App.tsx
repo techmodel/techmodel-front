@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import MenuDrawer from './components/MenuDrawer/MenuDrawer';
 
 const App = () => {
-  return <h1>hey</h1>;
+  const [drawerOpen, setDrawerOpen] = useState(true);
+
+  return <MenuDrawer drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />;
 };
 
 export default App;
