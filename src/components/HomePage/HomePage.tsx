@@ -2,11 +2,7 @@ import Header from '../Header/Header';
 import { Home } from './HomePage.styles';
 
 const HomePage = () => {
-  return (
-    <Home>
-      <Header />
-    </Home>
-  );
+  return <Home>Test</Home>;
 };
 
 export default HomePage;

@@ -1,12 +1,19 @@
-import { Link } from '@material-ui/core';
-import { Wrapper } from './Header.styles';
+import { useState } from 'react';
+import { Wrapper, Logo, MenuItems, AccountItem, MenuItem } from './Header.styles';
+import { AccountCircle, Menu } from '@material-ui/icons';
 
 const Header = () => {
   return (
     <Wrapper>
-      <Link href='/'>בקשות</Link>
-      <Link href='/'>יצירת בקשה</Link>
-      <Link href='/'>התנתקות</Link>
+      <Logo></Logo>
+      <MenuItems>
+        <MenuItem href='/'>בקשות</MenuItem>
+        <MenuItem href='/'>יצירת בקשה</MenuItem>
+      </MenuItems>
+      <AccountItem>
+        התנתק
+        <AccountCircle />
+      </AccountItem>
     </Wrapper>
   );
 };
