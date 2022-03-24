@@ -1,7 +1,9 @@
 import React from 'react';
+import Offer from './components/Offer';
+import OfferList from './components/OfferList';
 
 const App = () => {
-  return <h1>hey</h1>;
+  return <OfferList />;
 };
 
 export default App;
