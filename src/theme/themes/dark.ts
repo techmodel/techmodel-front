@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { DefaultTheme } from 'styled-components';
 import commonTheme from '../commonTheme';
 
-export default _.merge({
+export default _.merge({ // TODO: Adjust values to be actually dark; low priority
     colors: {
         success: '#00ff4c',
         gold: '#f1d95b',
