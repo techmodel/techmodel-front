@@ -13,9 +13,10 @@ import Slider from '@material-ui/core/Slider';
 import Button from '@material-ui/core/Button';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { UserFields } from '../../Types/UserFields.types';
-import { ProfileFieldsParams } from '../../Types/ProfileParams.types';
+import { ProfileFieldsParams, VolunteerFieldsParams } from '../../Types/ProfileParams.types';
+import VolunteerSignUp from './VolunteerSignUp';
 
-const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParams, userType: string }) => {
+const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: VolunteerFieldsParams; userType: string }) => {
   const [formValues, setFormValues] = useState<UserFields>({ gender: '', populationType: [], language: [], lectureType: [] });
 
   const handleInputChange = (e: any) => {
@@ -74,6 +75,7 @@ const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParam
           value={formValues['lectureType']}
           onChange={handleComplexInputChange('lectureType')}
         />
+        {userType === 'Volunteer' ? VolunteerSignUp({ fieldsParam, formValues, handleInputChange, handleComplexInputChange }) : null}
         <Button variant='contained' color='primary' type='submit'>
           Submit
         </Button>
