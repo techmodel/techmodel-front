@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterIcon from '@material-ui/icons/Search';
+import FilterIcon from '@material-ui/icons/FilterList';
 
 import * as s from './FilterBar.styled';
 
@@ -8,7 +8,7 @@ const FilterBar: React.FC = () => {
         <s.FilterBarTitle>
             <FilterIcon/>
             &nbsp;
-            סינון
+            סינון מתנדבים
         </s.FilterBarTitle>
     </s.FilterBarContainer>
 };

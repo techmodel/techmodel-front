@@ -10,10 +10,12 @@ export const FilterBarContainer = styled(Card)`
     width: 11em;
     flex-shrink: 0;
     margin: 5em 1em;
+    margin-top: 3em;
 `;
 
 export const FilterBarTitle = styled.div`
-    font-size: ${p => p.theme.font.size.header};
+    font-size: ${p => p.theme.font.size.title};
+    font-weight: 600;
     display: flex;
     align-items: center;
 `;
