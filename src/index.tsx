@@ -8,6 +8,7 @@ import ThemeSwitchProvider from './theme/ThemeSwitchProvider';
 import ThemeSwitchContext from './theme/ThemeSwitchContext';
 import { ThemeProvider } from 'styled-components';
 import themes from './theme/themes';
+import { GlobalStyles } from './theme/GlobalStyles';
 console.log(themes)
 const client = new QueryClient();
 
@@ -16,6 +17,7 @@ ReactDOM.render(
     <ThemeSwitchProvider>
       <ThemeSwitchContext.Consumer>
         {({theme}) => <ThemeProvider theme={themes[theme]}>
+          <GlobalStyles />
           <BrowserRouter>
             <App />
             <Routes>
