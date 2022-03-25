@@ -7,12 +7,14 @@ export const VolunteerCard = styled.div`
     padding-top: 1em;
     gap: .325em;
     border-radius: .5em;
-    background-color: #e7e7e7;
+    background-color: green;
     flex-direction: column;
     align-items: center;
     font-family: system-ui;
     min-width: 10em;
     flex-grow: 0;
+
+    background-color: ${p => p.theme.box.bg};
 `;
 
 export const ProfilePhoto = styled.div`
