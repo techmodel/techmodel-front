@@ -16,5 +16,4 @@ export const FilterBarTitle = styled.div`
     font-size: ${p => p.theme.font.size.header};
     display: flex;
     align-items: center;
-    direction: rtl;
 `;
