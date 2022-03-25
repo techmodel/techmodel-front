@@ -1,11 +1,11 @@
-export type SignUpFields = {
+export type UserFields = {
     gender: string,
     populationType: string[];
     language: string[];
     lectureType: string[];
 }
 
-export interface signUpVolunteerFields extends SignUpFields {
+export interface VolunteerFields extends UserFields {
     geoArea: string[];
     company: string;
     companyRole: string[];
@@ -13,10 +13,9 @@ export interface signUpVolunteerFields extends SignUpFields {
     proficiency: string[];
 }
 
-export interface signUpSchoolFields extends SignUpFields {
+export interface SchoolFields extends UserFields {
     schoolName : string;
     schoolType: string;
     geoArea: string;
     studentsAmount: string;
-    
 }

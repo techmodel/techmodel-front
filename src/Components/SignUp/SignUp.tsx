@@ -11,10 +11,12 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Slider from '@material-ui/core/Slider';
 import Button from '@material-ui/core/Button';
-import { SignUpFields } from '../../Types/signUp.types';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import { UserFields } from '../../Types/UserFields.types';
+import { ProfileFieldsParams } from '../../Types/ProfileParams.types';
 
-const SignUpForm = () => {
-  const [formValues, setFormValues] = useState<SignUpFields | {}>({});
+const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParams, userType: string }) => {
+  const [formValues, setFormValues] = useState<UserFields>({ gender: '', populationType: [], language: [], lectureType: [] });
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
@@ -33,9 +35,45 @@ const SignUpForm = () => {
     event.preventDefault();
     console.log(formValues);
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <Grid container alignItems='center' justify='center' direction='column'>
+        <Autocomplete
+          id={'gender'}
+          options={fieldsParam.gender}
+          renderInput={(params) => <TextField {...params} label={'מין'} variant='outlined' />}
+          style={{ width: 270 }}
+          value={formValues['gender']}
+          onChange={handleComplexInputChange('gender')}
+        />
+        <Autocomplete
+          id={'populationType'}
+          multiple
+          options={fieldsParam.populationType}
+          renderInput={(params) => <TextField {...params} label={'סוג אוכלוסיה'} variant='outlined' />}
+          style={{ width: 270 }}
+          value={formValues['populationType']}
+          onChange={handleComplexInputChange('populationType')}
+        />
+        <Autocomplete
+          id={'language'}
+          multiple
+          options={fieldsParam.language}
+          renderInput={(params) => <TextField {...params} label={'שפות'} variant='outlined' />}
+          style={{ width: 270 }}
+          value={formValues['language']}
+          onChange={handleComplexInputChange('language')}
+        />
+        <Autocomplete
+          id={'lectureType'}
+          multiple
+          options={fieldsParam.lectureType}
+          renderInput={(params) => <TextField {...params} label={'סוג ההרצאה'} variant='outlined' />}
+          style={{ width: 270 }}
+          value={formValues['lectureType']}
+          onChange={handleComplexInputChange('lectureType')}
+        />
         <Button variant='contained' color='primary' type='submit'>
           Submit
         </Button>
