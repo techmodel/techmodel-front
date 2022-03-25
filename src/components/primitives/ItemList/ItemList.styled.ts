@@ -18,7 +18,3 @@ export const ItemListContent = styled.div`
     margin: 2em 0;
     direction: ltr;
 `;
-
-
-//display: grid;
-//grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));
