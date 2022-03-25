@@ -9,7 +9,7 @@ export default function Layout({ children }: any) {
       <s.ViewContainer>
           {children}
       </s.ViewContainer>
-      <s.SystemIconColumn/>
+      {/*<s.SystemIconColumn/>*/}
     </s.LayoutContainer>
   );
 }

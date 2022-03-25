@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.text.primary};
     font-family: ${({ theme }) => theme.font.family.main};
     transition: all 0.50s linear;
+    direction: rtl;
   }
 
   a {

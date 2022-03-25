@@ -6,7 +6,6 @@ import FilterBar from '../FilterBar';
 const HomePage = () => {
   return (
     <Home>
-      <FilterBar/>
       <VolunteerList
         volunteers={[
           {
@@ -39,6 +38,7 @@ const HomePage = () => {
           },
         ]}
       />
+      <FilterBar/>
     </Home>
   );
 };

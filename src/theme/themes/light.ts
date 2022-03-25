@@ -22,7 +22,7 @@ export default _.merge({
     },
     card: {
         bg: '#fbfbfb',
-        boxShadow: '#0000000f 0 3px 40px 0px',
+        boxShadow: '#0000000f 0 3px 50px 0px',
     },
     button: {
         bg: {

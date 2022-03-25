@@ -9,10 +9,12 @@ export const FilterBarContainer = styled(Card)`
     overflow-x: hidden;
     width: 11em;
     flex-shrink: 0;
+    margin: 5em 1em;
 `;
 
 export const FilterBarTitle = styled.div`
     font-size: ${p => p.theme.font.size.header};
     display: flex;
     align-items: center;
+    direction: rtl;
 `;

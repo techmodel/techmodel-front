@@ -4,7 +4,7 @@ export const LayoutContainer = styled.div`
     width: 100%;
     height:100%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: stretch;
 `;
 

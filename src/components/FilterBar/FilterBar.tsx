@@ -8,7 +8,7 @@ const FilterBar: React.FC = () => {
         <s.FilterBarTitle>
             <FilterIcon/>
             &nbsp;
-            פילטור
+            סינון
         </s.FilterBarTitle>
     </s.FilterBarContainer>
 };
