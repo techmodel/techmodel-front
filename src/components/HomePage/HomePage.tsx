@@ -1,9 +1,11 @@
 import { Home } from './HomePage.styles';
 import VolunteerList from '../VolunteerList';
+import Card from '../primitives/Card';
 
 const HomePage = () => {
   return (
     <Home>
+      <Card>
       <VolunteerList
         volunteers={[
           {
@@ -36,7 +38,7 @@ const HomePage = () => {
           },
         ]}
       />
-      ;
+      </Card>
     </Home>
   );
 };

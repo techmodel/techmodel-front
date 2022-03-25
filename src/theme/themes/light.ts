@@ -11,18 +11,18 @@ export default _.merge({
             soft: '#929292',
         },
         success: '#00ff4c',
-        gold: '#f1d95b',
         warning: '#cf9875',
         error: '#ba3f3f',
         body: '#f6f6f6',
         link: '#1b62cc',
+        gold: '#f1d95b',
     },
     box: {
-        bg: '#e7e7e7',
+        bg: '#eeeeee',
     },
     card: {
         bg: '#fbfbfb',
-        boxShadow: '#00000021 0 3px 40px 0px',
+        boxShadow: '#0000000f 0 3px 40px 0px',
     },
     button: {
         bg: {
@@ -34,6 +34,6 @@ export default _.merge({
             primary: '#000000',
             secondary: '#646464',
             textButton: '#646464',
-        }
-    }
+        },
+    },
 }, commonTheme) as DefaultTheme;

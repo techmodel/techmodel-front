@@ -1,6 +1,10 @@
 import {createGlobalStyle} from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+  html, body, #root {
+    height: 100%;
+  }
+
   body {
     background: ${({ theme }) => theme.colors.body};
     color: ${({ theme }) => theme.colors.text.primary};

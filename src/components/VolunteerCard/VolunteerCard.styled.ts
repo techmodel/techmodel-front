@@ -1,20 +1,15 @@
 import styled from 'styled-components';
+import Box from '../primitives/Box';
 
-export const VolunteerCard = styled.div`
+export const VolunteerCard = styled(Box)`
     display: flex;
-    margin: 1em;
     padding: 2em .5em;
     padding-top: 1em;
     gap: .325em;
-    border-radius: .5em;
-    background-color: green;
     flex-direction: column;
     align-items: center;
-    font-family: system-ui;
     min-width: 10em;
     flex-grow: 0;
-
-    background-color: ${p => p.theme.box.bg};
 `;
 
 export const ProfilePhoto = styled.div`
