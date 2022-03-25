@@ -1,11 +1,12 @@
 import { Home } from './HomePage.styles';
 import VolunteerList from '../VolunteerList';
 import Card from '../primitives/Card';
+import FilterBar from '../FilterBar';
 
 const HomePage = () => {
   return (
     <Home>
-      <Card>
+      <FilterBar/>
       <VolunteerList
         volunteers={[
           {
@@ -38,7 +39,6 @@ const HomePage = () => {
           },
         ]}
       />
-      </Card>
     </Home>
   );
 };

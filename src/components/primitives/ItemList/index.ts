@@ -1,1 +1,1 @@
-export {default} from './ItemList.styled';
+export {default} from './ItemList';

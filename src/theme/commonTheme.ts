@@ -9,7 +9,7 @@ export default {
     },
     layout: {
         margin: '1em',
-        padding: '1em',
+        padding: '1.25em',
     },
     font: {
         size: {

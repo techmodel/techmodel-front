@@ -9,7 +9,8 @@ import ThemeSwitchContext from './theme/ThemeSwitchContext';
 import { ThemeProvider } from 'styled-components';
 import themes from './theme/themes';
 import { GlobalStyles } from './theme/GlobalStyles';
-console.log(themes)
+import Layout from './Layout';
+
 const client = new QueryClient();
 
 ReactDOM.render(
@@ -18,13 +19,16 @@ ReactDOM.render(
       <ThemeSwitchContext.Consumer>
         {({theme}) => <ThemeProvider theme={themes[theme]}>
           <GlobalStyles />
-          <BrowserRouter>
-            <App />
-            <Routes>
-              <Route path='/' element={<HomePage />} />
-              <Route path='volunteer' element={null} />
-            </Routes>
-          </BrowserRouter>
+          
+          <Layout>
+            <BrowserRouter>
+              <Routes>
+                <Route path='/' element={<HomePage />} />
+                <Route path='volunteer' element={null} />
+              </Routes>
+            </BrowserRouter>
+          </Layout>
+          
         </ThemeProvider>}
       </ThemeSwitchContext.Consumer>
     </ThemeSwitchProvider>
