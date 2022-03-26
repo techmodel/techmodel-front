@@ -11,7 +11,7 @@
       "jsx": true
     },
     "ecmaVersion": 12,
-    "sourceType": "module",
+    "sourceType": "module"
   },
   "plugins": ["react"],
   "settings": {
@@ -45,6 +45,7 @@
     "react/jsx-closing-tag-location": "off",
     "react/jsx-indent": "off",
     "import/prefer-default-export": "off",
-    "object-curly-spacing": "off"
+    "object-curly-spacing": "off",
+    "react/function-component-definition": "off"
   }
 }
