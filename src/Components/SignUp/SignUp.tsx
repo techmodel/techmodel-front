@@ -2,11 +2,11 @@ import { Grid, TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import React, { useState } from 'react';
-import { VolunteerFieldsParams } from '../../Types/ProfileParams.types';
+import { ProfileFieldsParams, VolunteerFieldsParams } from '../../Types/ProfileParams.types';
 import { UserFields } from '../../Types/UserFields.types';
 import VolunteerSignUp from './VolunteerSignUp';
 
-const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: VolunteerFieldsParams; userType: string }) => {
+const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParams; userType: string }) => {
   const [formValues, setFormValues] = useState<UserFields>({ gender: '', populationType: [], language: [], eventType: [], name: '' });
 
   const handleInputChange = (e: any) => {
@@ -66,7 +66,14 @@ const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: VolunteerFieldsPar
           value={formValues['eventType']}
           onChange={handleComplexInputChange('eventType')}
         />
-        {userType === 'Volunteer' ? VolunteerSignUp({ fieldsParam, formValues, handleInputChange, handleComplexInputChange }) : null}
+        {userType === 'Volunteer' ? (
+          <VolunteerSignUp
+            fieldsParam={fieldsParam as VolunteerFieldsParams}
+            formValues={formValues}
+            handleInputChange={handleInputChange}
+            handleComplexInputChange={handleComplexInputChange}
+          />
+        ) : null}
         <Button variant='contained' color='primary' type='submit'>
           Submit
         </Button>
