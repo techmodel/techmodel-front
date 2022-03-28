@@ -25,13 +25,13 @@ const VolunteerSignUp = ({
         onChange={handleComplexInputChange('companyRole')}
       />
       <Autocomplete
-        id={'lectureFocus'}
+        id={'event'}
         multiple
-        options={fieldsParam.lectureFocus}
+        options={fieldsParam.eventFocus}
         renderInput={(params) => <TextField {...params} label={'תחום ההרצאה'} variant='outlined' />}
         style={{ width: 270 }}
-        value={formValues['lectureFocus']}
-        onChange={handleComplexInputChange('lectureFocus')}
+        value={formValues['eventFocus']}
+        onChange={handleComplexInputChange('event')}
       />
       <Autocomplete
         id={'proficiency'}

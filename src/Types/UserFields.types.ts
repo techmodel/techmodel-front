@@ -2,14 +2,15 @@ export type UserFields = {
     gender: string,
     populationType: string[];
     language: string[];
-    lectureType: string[];
+    eventType: string[];
+    name: string;
 }
 
 export interface VolunteerFields extends UserFields {
     geoArea: string[];
-    company: string;
+    companyName: string;
     companyRole: string[];
-    lectureFocus: string;
+    eventFocus: string;
     proficiency: string[];
 }
 

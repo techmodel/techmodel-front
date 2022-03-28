@@ -7,7 +7,7 @@ import { UserFields } from '../../Types/UserFields.types';
 import VolunteerSignUp from './VolunteerSignUp';
 
 const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: VolunteerFieldsParams; userType: string }) => {
-  const [formValues, setFormValues] = useState<UserFields>({ gender: '', populationType: [], language: [], lectureType: [] });
+  const [formValues, setFormValues] = useState<UserFields>({ gender: '', populationType: [], language: [], eventType: [], name: '' });
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
@@ -30,6 +30,7 @@ const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: VolunteerFieldsPar
   return (
     <form onSubmit={handleSubmit}>
       <Grid container alignItems='center' justify='center' direction='column'>
+        <TextField required id={'name'} label='שם' onChange={handleInputChange} name={'name'} value={formValues['name']} />
         <Autocomplete
           id={'gender'}
           options={fieldsParam.gender}
@@ -57,13 +58,13 @@ const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: VolunteerFieldsPar
           onChange={handleComplexInputChange('language')}
         />
         <Autocomplete
-          id={'lectureType'}
+          id={'eventType'}
           multiple
-          options={fieldsParam.lectureType}
+          options={fieldsParam.eventType}
           renderInput={(params) => <TextField {...params} label={'סוג ההרצאה'} variant='outlined' />}
           style={{ width: 270 }}
-          value={formValues['lectureType']}
-          onChange={handleComplexInputChange('lectureType')}
+          value={formValues['eventType']}
+          onChange={handleComplexInputChange('eventType')}
         />
         {userType === 'Volunteer' ? VolunteerSignUp({ fieldsParam, formValues, handleInputChange, handleComplexInputChange }) : null}
         <Button variant='contained' color='primary' type='submit'>
