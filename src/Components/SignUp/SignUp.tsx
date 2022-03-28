@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import React, { useState } from 'react';
 import { ProfileFieldsParams, VolunteerFieldsParams } from '../../Types/ProfileParams.types';
-import { UserFields } from '../../Types/UserFields.types';
+import { UserFields, VolunteerFields } from '../../Types/UserFields.types';
 import VolunteerSignUp from './VolunteerSignUp';
 
 const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParams; userType: string }) => {
@@ -69,7 +69,7 @@ const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParam
         {userType === 'Volunteer' ? (
           <VolunteerSignUp
             fieldsParam={fieldsParam as VolunteerFieldsParams}
-            formValues={formValues}
+            formValues={formValues as VolunteerFields}
             handleInputChange={handleInputChange}
             handleComplexInputChange={handleComplexInputChange}
           />
