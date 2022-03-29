@@ -11,4 +11,5 @@ export interface Volunteer {
         emailAddress?: string;
         phoneNumber?: string;
     };
+    profilePictureLocation: string;
 }
