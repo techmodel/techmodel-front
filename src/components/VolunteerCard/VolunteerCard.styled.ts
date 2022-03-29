@@ -47,6 +47,7 @@ export const Username = styled.div`
 export const Occupation = styled.div`
     color: #787878;
     text-align: center;
+    unicode-bidi: plaintext;
 `;
 
 export const AdditionalField = styled.div`

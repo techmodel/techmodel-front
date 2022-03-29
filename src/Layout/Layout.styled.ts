@@ -27,8 +27,5 @@ export const SidebarMock = styled.div`
     flex-direction: column;
     align-items: center;
     width: 14em;
-    background-color: lightgray;
-    ::after {
-        content: 'mock sidebar'
-    }
+    background-color: #dee2e3;
 `;

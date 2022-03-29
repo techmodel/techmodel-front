@@ -10,10 +10,13 @@ const HomePage = () => {
         volunteers={[
           {
             name: 'ישראל ישראלי',
-            occupation: 'Product Manager',
-            employer: 'Microsoft IL',
-            phoneNumber: '+054-202-1082',
+            occupation: 'מנהל מוצר',
+            employer: 'מייקרוסופט ישראל',
+            phoneNumber: '054-202-1082',
             profile: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-selfie.jpg?quality=86&strip=all',
+            emailAddress: 'israel.israelli@gmail.com',
+            languages: ['עברית', 'אנגלית'],
+            shortDescription: 'אני אוהב לטייל, ללכת לים, ורכיבה על אופני שטח',
           },
           {
             name: 'נעה כהן',
