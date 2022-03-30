@@ -4,6 +4,7 @@ import FilterIcon from '@material-ui/icons/FilterList';
 import * as s from './FilterBar.styled';
 import FilterRow from './FilterRow';
 import StringFilter from './FilterRow/filterInputs/StringFilter';
+import { FilterStateAccessor } from './FilterRow/FilterRow';
 
 export interface FilterInputProps<T> {
     value: T;
@@ -11,24 +12,36 @@ export interface FilterInputProps<T> {
     isEnabled: boolean;
 }
 
+export interface FieldState<T> {
+    value: T;
+    isEnabled?: boolean;
+}
+
+function useFieldProps<T>(initialValue: T): FilterStateAccessor<T> {
+    const [fieldState, setFieldState] = useState<FieldState<T>>({value: initialValue});
+    return {fieldState, setFieldState};
+}
+
 const FilterBar: React.FC = () => {
+    const nameProps = useFieldProps<string>('אלי');
+    const roleProps = useFieldProps<string>('מפתח תוכנה');
+    const employerProps = useFieldProps<string>('אינטל');
     return <s.FilterBarContainer>
         <s.FilterBarTitle>
             <FilterIcon/>
             &nbsp;
             סינון מתנדבים
         </s.FilterBarTitle>
-        <FilterRow initialValue='בוב' fieldTitle='שם מתנדב' setFilterValue={(v) => console.log(v)}>
+        <FilterRow fieldTitle='שם מתנדב' {...nameProps}>
             {(props) => <StringFilter {...props} />}
         </FilterRow>
-        <FilterRow initialValue='מפתח תוכנה' fieldTitle='עיסוק' setFilterValue={(v) => console.log(v)}>
+        <FilterRow fieldTitle='עיסוק' {...roleProps}>
             {(props) => <StringFilter {...props} />}
         </FilterRow>
-        <FilterRow initialValue='אינטל' fieldTitle='חברה' setFilterValue={(v) => console.log(v)}>
+        <FilterRow fieldTitle='מעסיק' {...employerProps}>
             {(props) => <StringFilter {...props} />}
         </FilterRow>
-        
-    </s.FilterBarContainer>
-};
+    </s.FilterBarContainer>;
+}
 
 export default FilterBar;

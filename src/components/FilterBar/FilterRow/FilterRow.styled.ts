@@ -6,7 +6,6 @@ export const FilterTitleRow = styled.div`
     align-items: center;
     gap: 0.25em;
     font-weight: 600;
-    justify-content: space-between;
 `;
 
 export const FilterInputRow = styled.div<{isEnabled: boolean}>`

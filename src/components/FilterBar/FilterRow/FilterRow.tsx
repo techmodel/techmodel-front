@@ -1,37 +1,45 @@
 import { Checkbox } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import { FilterInputProps } from '../FilterBar';
+import { FieldState, FilterInputProps } from '../FilterBar';
 
 import * as s from './FilterRow.styled';
 
-interface FilterRowProps<T> {
+
+export interface FilterStateAccessor<T> {
+    fieldState: FieldState<T>;
+    setFieldState: React.Dispatch<React.SetStateAction<FieldState<T>>>;
+}
+
+interface FilterRowProps<T> extends FilterStateAccessor<T> {
     fieldTitle: string;
-    initialValue: T;
-    setFilterValue: React.Dispatch<React.SetStateAction<T | undefined>>;
-    valueTransform?: (value: any) => T;
     children: (props: FilterInputProps<T>) => React.ReactNode;
 }
 
-const FilterRow = ({fieldTitle, initialValue, setFilterValue, children}: FilterRowProps<string>) => {
-    const [isEnabled, setIsEnabled] = useState<boolean>(!!initialValue);
-    const [value, setValue] = useState(initialValue);
+function FilterRow<T>({fieldTitle, fieldState, setFieldState, children}: FilterRowProps<T>) {
+    const [value, setValue] = useState<T>(fieldState.value);
 
     useEffect(() => {
-        setFilterValue(isEnabled ? value : undefined);
-    }, [value, isEnabled]);
+        setValue(fieldState.value);
+    }, [fieldState.value]);
 
-    return <div onClick={() => setIsEnabled(true)}>
+    useEffect(() => {
+        if (value !== fieldState.value) {
+            setFieldState({isEnabled: !!value, value});
+        }
+    }, [value]);
+    console.log(fieldState)
+    return <div onClick={() => setFieldState({isEnabled: true, value})}>
         <s.FilterTitleRow>
-            {fieldTitle}
-            <Checkbox
-            checked={isEnabled}
-            onChange={(_, checked)=> setIsEnabled(checked)}
+        <Checkbox
+            checked={!!fieldState.isEnabled}
+            onChange={(_, checked)=> setFieldState({isEnabled: checked, value})}
         />
+            {fieldTitle}
         </s.FilterTitleRow>
         {children({
             value,
             setValue,
-            isEnabled,
+            isEnabled: !!fieldState.isEnabled,
         })}
     </div>;
 }
