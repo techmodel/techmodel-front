@@ -4,7 +4,7 @@ import Card from '../primitives/Card';
 
 export const VolunteerModal = styled(Card)`
     overflow: auto;
-    padding: 3em 2em;
+    padding: 2em 2em;
     border-radius: 1em;
 `;
 
