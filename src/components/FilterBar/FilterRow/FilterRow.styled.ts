@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { TextField as MUITextField } from '@mui/material';
+
 
 export const FilterTitleRow = styled.div`
     display: flex;
@@ -9,6 +11,12 @@ export const FilterTitleRow = styled.div`
 `;
 
 export const FilterInputRow = styled.div<{isEnabled: boolean}>`
+    ${p => !p.isEnabled && css`
+        opacity: 0.5;
+    `}
+`;
+
+export const StringFilterInputRow = styled(FilterInputRow)`
     display: flex;
     align-items: center;
     gap: 1em;
@@ -18,13 +26,23 @@ export const FilterInputRow = styled.div<{isEnabled: boolean}>`
     color: ${p => p.theme.colors.text.secondary};
     padding: 0.325em;
     border-radius: 0.3em;
-
-    ${p => !p.isEnabled && css`
-        opacity: 0.5;
-    `}
     input {
         outline: none;
         border-style: none;
         background-color: transparent;
     }
+`;
+
+
+export const MultiSelectFilterRow = styled(FilterInputRow)`
+    .MuiChip-root {
+        direction: ltr;
+    }
+    .MuiAutocomplete-endAdornment {
+        direction: ltr;
+    }
+`;
+
+export const TextField = styled(MUITextField)`
+    direction: ltr;
 `;
