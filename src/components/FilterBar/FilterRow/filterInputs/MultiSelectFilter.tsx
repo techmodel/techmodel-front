@@ -4,33 +4,36 @@ import { FilterInputProps } from '../../FilterBar';
 
 import * as s from '../FilterRow.styled';
 
-
 interface MultiSelectProps<T> {
-    options: T[];
-    getOptionLabel?: (option: T) => string;
+  options: T[];
+  getOptionLabel?: (option: T) => string;
 }
 
-function MultiSelectFilter<T>({value, setValue, isEnabled, options, getOptionLabel, onInteract, setIsEmpty}: FilterInputProps<T[]> & MultiSelectProps<T>) {
-    useEffect(() => {
-        setIsEmpty(!value || value.length === 0);
-    }, [value]);
-    
-    return <s.MultiSelectFilterRow isEnabled={isEnabled}>
-        <Autocomplete
-            multiple
-            options={options}
-            getOptionLabel={getOptionLabel}
-            defaultValue={value}
-            onChange={(_, value) => setValue((_) => value)}
-            renderInput={(params) => (
-            <TextField
-                {...params}
-                variant='standard'
-                onFocus={onInteract}
-            />
-            )}
-        />
-    </s.MultiSelectFilterRow>;
+function MultiSelectFilter<T>({
+  value,
+  setValue,
+  isEnabled,
+  options,
+  getOptionLabel,
+  onInteract,
+  setIsEmpty,
+}: FilterInputProps<T[]> & MultiSelectProps<T>) {
+  useEffect(() => {
+    setIsEmpty(!value || value.length === 0);
+  }, [value]);
+
+  return (
+    <s.MultiSelectFilterRow isEnabled={isEnabled}>
+      <Autocomplete
+        multiple
+        options={options}
+        getOptionLabel={getOptionLabel}
+        defaultValue={value}
+        onChange={(_, value) => setValue((_) => value)}
+        renderInput={(params) => <TextField {...params} variant='standard' onFocus={onInteract} />}
+      />
+    </s.MultiSelectFilterRow>
+  );
 }
 
 export default MultiSelectFilter;
