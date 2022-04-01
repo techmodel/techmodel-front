@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from 'styled-components';
-import Modal from '@material-ui/core/Modal';
+import { Modal } from '@mui/material';
 
 import * as s from './VolunteerCard.styled';
 import VolunteerModal from '../VolunteerModal';
