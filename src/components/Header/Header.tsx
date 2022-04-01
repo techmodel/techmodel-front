@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Wrapper, Logo, MenuItems, AccountItem, MenuItem } from './Header.styles';
-import { AccountCircle, Menu } from '@material-ui/icons';
+import { AccountCircle, Menu } from '@mui/icons-material';
 
 const Header = () => {
   return (
