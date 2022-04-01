@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Person, MailOutline, Language } from '@material-ui/icons';
+import { Phone, Person, MailOutline, Language } from '@mui/icons-material';
 
 import * as s from './VolunteerModal.styled';
 import { Volunteer } from '../../types/volunteer';

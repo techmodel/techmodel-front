@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { IconButton, Toolbar, Divider, Drawer } from '@material-ui/core';
-import { Menu, ChevronRight, ChevronLeft } from '@material-ui/icons';
+import { Menu, ChevronRight, ChevronLeft } from '@mui/icons-material';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
