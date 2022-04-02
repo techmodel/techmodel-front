@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    margin: 40px;
+  display: flex;
+  width: 30em;
+  height: 30em;
+  border: 5px solid lightblue;
 `;
