@@ -1,7 +1,7 @@
 import { Container } from '@material-ui/core';
 import React from 'react';
 import { ProfileFieldsParams } from '../../../Types/ProfileParams.types';
-import SignUpForm from '../SignUpForm/SignUp';
+import SignUpForm from '../SignUpDetails/SignUpForm/SignUp';
 import * as s from './SignUp.container.styles';
 
 const SignUpContainer = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParams; userType: string }) => {
