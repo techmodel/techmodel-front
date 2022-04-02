@@ -1,21 +1,16 @@
-import { Container, Grid, TextField } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import React, { useState } from 'react';
-import { ProfileFieldsParams, SchoolManagerFieldsParams, VolunteerFieldsParams } from '../../../Types/ProfileParams.types';
-import { SchoolFields, UserFields, VolunteerFields } from '../../../Types/UserFields.types';
-import SchoolManagerSignUp from '../SignUpOptions/SchoolManagerSignUp';
-import { Wrapper } from './SignUp.container.styles';
-import VolunteerSignUp from '../SignUpOptions/VolunteerSignUp';
+import { Container } from '@material-ui/core';
+import React from 'react';
+import { ProfileFieldsParams } from '../../../Types/ProfileParams.types';
 import SignUpForm from '../SignUpForm/SignUp';
+import * as s from './SignUp.container.styles';
 
 const SignUpContainer = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParams; userType: string }) => {
   return (
-    <Wrapper>
+    <s.SignUpContainer>
       <Container>
         <SignUpForm fieldsParam={fieldsParam} userType={userType} />
       </Container>
-    </Wrapper>
+    </s.SignUpContainer>
   );
 };
 export default SignUpContainer;

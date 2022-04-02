@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const SignUpContainer = styled.div`
   display: flex;
   width: 30em;
   height: 30em;
