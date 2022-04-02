@@ -8,6 +8,7 @@ const SignUpContainer = ({ fieldsParam, userType }: { fieldsParam: ProfileFields
   return (
     <s.SignUpContainer>
       <Container>
+        <h1>הרשמה</h1>
         <SignUpForm fieldsParam={fieldsParam} userType={userType} />
       </Container>
     </s.SignUpContainer>

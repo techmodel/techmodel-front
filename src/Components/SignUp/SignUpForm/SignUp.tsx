@@ -32,6 +32,7 @@ const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParam
   return (
     <s.SignUpForm>
       <form onSubmit={handleSubmit}>
+        <h2>רק קצת פרטים</h2>
         <TextField required id={'name'} label='שם' onChange={handleInputChange} name={'name'} value={formValues['name']} />
         <Autocomplete
           id={'gender'}
