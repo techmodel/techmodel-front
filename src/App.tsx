@@ -1,9 +1,14 @@
 import React from 'react';
-import Offer from './components/Offer';
-import OfferList from './components/OfferList';
+import { MsalProvider} from '@azure/msal-react';
+import Home from './components/Home';
 
-const App = () => {
-  return <OfferList />;
+
+const App = ({msalInstance}: any) => {
+  return(
+    <MsalProvider instance={msalInstance}>
+      <Home />
+    </MsalProvider>
+  );
 };
 
 export default App;
