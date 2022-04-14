@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from '@material-ui/core';
+import { Link } from '@mui/material';
 
 export const Wrapper = styled.div`
   padding: 10px;
