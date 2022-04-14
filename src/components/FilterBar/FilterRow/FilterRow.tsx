@@ -1,49 +1,33 @@
 import { Checkbox } from '@material-ui/core';
 import React, { useCallback, useEffect, useState } from 'react';
-import { FieldState, FilterInputProps } from '../FilterBar';
+import { FieldState, Filter, FilterInputProps } from '../FilterBar';
+import { FilterProps } from './filterInputs/hooks';
 
 import * as s from './FilterRow.styled';
 
 
 export interface FilterStateAccessor<T> {
+    getFilter: () => Filter<T>;
     fieldState: FieldState<T>;
     setFieldState: React.Dispatch<React.SetStateAction<FieldState<T>>>;
     onInteract: () => void;
     setIsEmpty: (isEmpty: boolean) => void;
 }
 
-interface FilterRowProps<T> extends FilterStateAccessor<T> {
-    fieldTitle: string;
-    children: (props: FilterInputProps<T>) => React.ReactNode;
+interface FilterRowProps<T> extends FilterProps<T> {
+    children: (props: FilterProps<T>) => React.ReactNode;
 }
 
-function FilterRow<T>({fieldTitle, fieldState, setFieldState, children, onInteract, setIsEmpty}: FilterRowProps<T>) {
-    const [value, setValue] = useState<T>(fieldState.value);
-
-    useEffect(() => {
-        setValue(fieldState.value);
-    }, [fieldState.value]);
-
-    useEffect(() => {
-        if (value !== fieldState.value) {
-            setFieldState(prev => ({...prev, value}));
-        }
-    }, [value]);
+function FilterRow<T>({children, ...filterProps}: FilterRowProps<T>) {
     return <div>
         <s.FilterTitleRow>
         <Checkbox
-            checked={!!fieldState.isEnabled}
-            onChange={(_, checked)=> setFieldState({isEnabled: checked, value})}
+            checked={filterProps.isEnabled}
+            onChange={(_, checked)=> filterProps.setIsEnabled(checked)}
         />
-            {fieldTitle}
+            {filterProps.fieldTitle}
         </s.FilterTitleRow>
-        {children({
-            value,
-            setValue,
-            isEnabled: !!fieldState.isEnabled,
-            onInteract,
-            setIsEmpty,
-        })}
+        {children(filterProps)}
     </div>;
 }
 

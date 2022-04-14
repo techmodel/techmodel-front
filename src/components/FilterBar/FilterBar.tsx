@@ -3,10 +3,11 @@ import FilterIcon from '@material-ui/icons/FilterList';
 
 import * as s from './FilterBar.styled';
 import FilterRow from './FilterRow';
-import StringFilter from './FilterRow/filterInputs/StringFilter';
+import StringFilter from './FilterRow/filterInputs/stringFilter/StringFilter';
 import { FilterStateAccessor } from './FilterRow/FilterRow';
-import MultiSelectFilter from './FilterRow/filterInputs/MultiSelectFilter';
+import MultiSelectFilter from './FilterRow/filterInputs/multiSelectFilter/MultiSelectFilter';
 import { Language } from '@material-ui/icons';
+import { FilterProps } from './FilterRow/filterInputs/hooks';
 
 export interface FilterInputProps<T> {
     value: T;
@@ -22,21 +23,46 @@ export interface FieldState<T> {
     isEmpty?: boolean;
 }
 
-function useFieldProps<T>(initialValue: T): FilterStateAccessor<T> {
+function useFieldProps<T>(initialValue: T, fieldName: string): FilterStateAccessor<T> {
     const [fieldState, setFieldState] = useState<FieldState<T>>({value: initialValue, isEmpty: !!initialValue, isEnabled: !!initialValue});
     const onInteract = useCallback(() => setFieldState(prev => ({...prev, isEnabled: true})), []);
     const setIsEmpty = useCallback((isEmpty: boolean) => {
         setFieldState(prev => ({...prev, isEmpty, isEnabled: !isEmpty}));
     }, []);
-    return {fieldState, setFieldState, onInteract, setIsEmpty};
+    const getFilter: () => Filter<T> = useCallback(() => ({
+        fieldName,
+        value: fieldState.value,
+    }), [fieldState.value]);
+    return {getFilter, fieldState, setFieldState, onInteract, setIsEmpty};
 }
 
-const FilterBar: React.FC = () => {
-    const nameProps = useFieldProps<string>('אלי');
-    const roleProps = useFieldProps<string>('מפתח תוכנה');
-    const employerProps = useFieldProps<string>('אינטל');
-    const languages = useFieldProps<string[]>(['עברית']);
+export interface Filter<T> {
+    fieldName: string;
+    value: T;
+}
 
+export interface FieldMapping {
+    nameProps: FilterProps<string>;
+    areaProps: FilterProps<String[]>;
+}
+
+interface FilterBarProps {
+    filters: FieldMapping;
+    setFilters?: React.Dispatch<React.SetStateAction<Filter<any>[]>>;
+}
+
+const FilterBar = ({filters}: FilterBarProps) => {
+    const {nameProps, areaProps} = filters;
+    // const nameProps = useFieldProps<string>('אלי', 'name');
+    // const roleProps = useFieldProps<string>('מפתח תוכנה', 'role');
+    // const employerProps = useFieldProps<string>('אינטל', 'employer');
+    // const languages = useFieldProps<string[]>(['עברית'], 'languages');
+    // const areaProps = useFieldProps<string[]>([], 'areas');
+    // const filters = [nameProps, roleProps, employerProps, languages, areaProps]
+    //     .filter(({fieldState}) => fieldState.isEnabled && !fieldState.isEmpty)
+    //     .map(field => field.getFilter());
+
+    console.log(filters)
     return <s.FilterBarContainer>
         <s.FilterBarTitle>
             <FilterIcon/>
@@ -44,10 +70,10 @@ const FilterBar: React.FC = () => {
             סינון מתנדבים
         </s.FilterBarTitle>
         <s.FilterBarRowsContainer>
-            <FilterRow fieldTitle='שם מתנדב' {...nameProps}>
+            <FilterRow {...nameProps}>
                 {(props) => <StringFilter {...props} />}
             </FilterRow>
-            <FilterRow fieldTitle='עיסוק' {...roleProps}>
+            {/* <FilterRow fieldTitle='עיסוק' {...roleProps}>
                 {(props) => <StringFilter {...props} />}
             </FilterRow>
             <FilterRow fieldTitle='מעסיק' {...employerProps}>
@@ -55,8 +81,14 @@ const FilterBar: React.FC = () => {
             </FilterRow>
             <FilterRow fieldTitle='שפות' {...languages}>
                 {(props) => <MultiSelectFilter
-                {...props}
-                options={['עברית', 'אנגלית']}
+                    {...props}
+                    options={['עברית', 'אנגלית']}
+                />}
+            </FilterRow> */}
+            <FilterRow {...areaProps}>
+                {(props) => <MultiSelectFilter
+                    {...props}
+                    options={['מרכז', 'דרום', 'צפון']}
                 />}
             </FilterRow>
         </s.FilterBarRowsContainer>

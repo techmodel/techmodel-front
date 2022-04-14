@@ -27,4 +27,5 @@ export const FilterBarRowsContainer = styled.div`
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: auto;
+    height: 100%;
 `;

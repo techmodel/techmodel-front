@@ -1,8 +1,9 @@
 import { Autocomplete, InputAdornment, TextField } from '@mui/material';
-import React, { useEffect } from 'react';
-import { FilterInputProps } from '../../FilterBar';
+import React, { useEffect, useMemo } from 'react';
+import { FilterInputProps } from '../../../FilterBar';
 
-import * as s from '../FilterRow.styled';
+import * as s from '../../FilterRow.styled';
+import { FilterProps } from '../hooks';
 
 
 interface MultiSelectProps<T> {
@@ -10,23 +11,21 @@ interface MultiSelectProps<T> {
     getOptionLabel?: (option: T) => string;
 }
 
-function MultiSelectFilter<T>({value, setValue, isEnabled, options, getOptionLabel, onInteract, setIsEmpty}: FilterInputProps<T[]> & MultiSelectProps<T>) {
-    useEffect(() => {
-        setIsEmpty(!value || value.length === 0);
-    }, [value]);
+function MultiSelectFilter<T>({value, setValue, setIsEnabled, isRelevant, options, getOptionLabel}: FilterProps<T[]> & MultiSelectProps<T>) {
+    const defaultValue = useMemo(() => value, []);
     
-    return <s.MultiSelectFilterRow isEnabled={isEnabled}>
+    return <s.MultiSelectFilterRow isRelevant={isRelevant}>
         <Autocomplete
             multiple
             options={options}
             getOptionLabel={getOptionLabel}
-            defaultValue={value}
+            defaultValue={defaultValue}
             onChange={(_, value) => setValue((_) => value)}
             renderInput={(params) => (
             <TextField
                 {...params}
                 variant='standard'
-                onFocus={onInteract}
+                onFocus={() => setIsEnabled(true)}
             />
             )}
         />
