@@ -1,5 +1,13 @@
 const path = require('path');
 
+import dotenv from "dotenv";
+dotenv.config();
+console.log(dotenv)
+const environmentVariables = [
+    "API_URL",
+    "ENVIRONMENT",
+];
+
 module.exports = {
   entry: './src/index.ts',
   module: {
@@ -18,4 +26,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  plugins: [
+      new webpack.EnvironmentPlugin(environmentVariables),
+  ],
 };

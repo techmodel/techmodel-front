@@ -1,7 +1,7 @@
-import local from "./local";
-import staging from "./staging";
-import prod from "./prod";
-import { Environment } from "./default";
+import local from './local';
+import staging from './staging';
+import prod from './prod';
+import { Environment } from './default';
 
 
 const configurations: Record<string, Environment> = {

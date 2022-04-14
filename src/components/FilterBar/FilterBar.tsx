@@ -1,18 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import FilterIcon from '@material-ui/icons/FilterList';
+import FilterIcon from '@mui/icons-material/FilterList';
 
 import * as s from './FilterBar.styled';
 import FilterRow from './FilterRow';
-import StringFilter from './FilterRow/filterInputs/stringFilter/StringFilter';
-import { FilterStateAccessor } from './FilterRow/FilterRow';
+import StringFilter from './FilterRow/filterInputs/StringFilter/StringFilter';
 import MultiSelectFilter from './FilterRow/filterInputs/multiSelectFilter/MultiSelectFilter';
 import { FilterProps } from './FilterRow/filterInputs/hooks';
 
-
-export interface Filter<T> {
-    fieldName: string;
-    value: T;
-}
 
 export interface FieldMapping {
     nameProps: FilterProps<string>;
@@ -21,7 +15,6 @@ export interface FieldMapping {
 
 interface FilterBarProps {
     filters: FieldMapping;
-    setFilters?: React.Dispatch<React.SetStateAction<Filter<any>[]>>;
 }
 
 const FilterBar = ({filters}: FilterBarProps) => {

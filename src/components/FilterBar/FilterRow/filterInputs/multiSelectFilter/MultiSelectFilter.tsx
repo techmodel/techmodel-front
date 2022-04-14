@@ -1,6 +1,5 @@
 import { Autocomplete, InputAdornment, TextField } from '@mui/material';
-import React, { useEffect, useMemo } from 'react';
-import { FilterInputProps } from '../../../FilterBar';
+import React, {  useMemo } from 'react';
 
 import * as s from '../../FilterRow.styled';
 import { FilterProps } from '../hooks';

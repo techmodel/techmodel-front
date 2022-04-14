@@ -13,16 +13,7 @@ export function basicFilterHook<T>(fieldName: string, fieldTitle: string, initia
     useEffect(() => {
         setIsEnabled(!isEmpty);
     }, [isEmpty]);
-    console.log({
-        value,
-        setValue,
-        isEnabled,
-        setIsEnabled,
-        isRelevant,
-        fieldName,
-        fieldTitle,
-        isEmpty,
-    })
+
     return {
         value,
         setValue,
