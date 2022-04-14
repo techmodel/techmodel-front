@@ -21,18 +21,10 @@ export const FilterBarTitle = styled.div`
 `;
 
 export const FilterBarRowsContainer = styled.div`
-<<<<<<< HEAD
     display: flex;
     gap: 0.25em;
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
-=======
-  display: flex;
-  gap: 0.25em;
-  flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: auto;
->>>>>>> 08b9beacdfaa18a2a51420f1bfcbab8cea39a3d9
 `;
