@@ -1,10 +1,8 @@
 import local from "./local";
 import staging from "./staging";
 import prod from "./prod";
+import { Environment } from "./default";
 
-export interface Environment {
-    apiUrl: string,
-}
 
 const configurations: Record<string, Environment> = {
     local,
