@@ -72,12 +72,10 @@ const MenuDrawer = ({ drawerOpen, setDrawerOpen }: any) => {
 
   const handleDrawerOpen = () => {
     setDrawerOpen(true);
-    console.log('a');
   };
 
   const handleDrawerClose = () => {
     setDrawerOpen(false);
-    console.log('closing');
   };
 
   return (

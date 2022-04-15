@@ -2,7 +2,6 @@ const path = require('path');
 
 import dotenv from "dotenv";
 dotenv.config();
-console.log(dotenv)
 const environmentVariables = [
     "API_URL",
     "ENVIRONMENT",

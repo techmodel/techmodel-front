@@ -7,10 +7,22 @@ import { useStringFilter } from '../FilterBar/FilterRow/filterInputs/StringFilte
 import { useMultiSelectFilter } from '../FilterBar/FilterRow/filterInputs/multiSelectFilter/multiSelectFilterHook';
 import { FieldMapping } from '../FilterBar/FilterBar';
 import env from '../../env';
+import { useQuery } from 'react-query';
+import { ApiFilter, FilterProps } from '../FilterBar/FilterRow/filterInputs/hooks';
+import { searchEntity } from '../../api/search';
 
 const HomePage = () => {
   const filters = getFilters();
-  console.log(env.apiUrl)
+  const filtersList = Object.values(filters)
+      .filter((filter: FilterProps<any>) => filter.isRelevant)
+      .map((filter: FilterProps<any>) => filter.toJson());
+  
+  const volunteersQuery = useQuery(
+    ['volunteers', ...filtersList.map((filter: ApiFilter<any>) => JSON.stringify(filter.value))],
+    () => searchEntity('volunteer', filtersList),
+    {enabled: true},
+  );
+  console.log(volunteersQuery)
   return (
     <Home>
       <VolunteerList
