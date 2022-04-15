@@ -10,8 +10,8 @@ export const FilterTitleRow = styled.div`
     font-weight: 600;
 `;
 
-export const FilterInputRow = styled.div<{isEnabled: boolean}>`
-    ${p => !p.isEnabled && css`
+export const FilterInputRow = styled.div<{isRelevant: boolean}>`
+    ${p => !p.isRelevant && css`
         opacity: 0.5;
     `}
 `;

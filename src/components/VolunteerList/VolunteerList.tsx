@@ -10,9 +10,6 @@ export default function VolunteerList({ volunteers }: any) {
       {volunteers.map((volunteer: any) => (
         <VolunteerCard volunteer={volunteer} key={volunteer.id} />
       ))}
-      {volunteers.map((volunteer: any) => (
-        <VolunteerCard volunteer={volunteer} key={volunteer.id} />
-      ))}
     </ItemList>
   );
 }

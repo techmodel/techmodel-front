@@ -1,62 +1,43 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import FilterIcon from '@mui/icons-material/FilterList';
+
 import * as s from './FilterBar.styled';
 import FilterRow from './FilterRow';
-import StringFilter from './FilterRow/filterInputs/StringFilter';
-import { FilterStateAccessor } from './FilterRow/FilterRow';
-import MultiSelectFilter from './FilterRow/filterInputs/MultiSelectFilter';
-import { Filter } from '@mui/icons-material';
+import StringFilter from './FilterRow/filterInputs/StringFilter/StringFilter';
+import MultiSelectFilter from './FilterRow/filterInputs/multiSelectFilter/MultiSelectFilter';
+import { FilterProps } from './FilterRow/filterInputs/hooks';
 
-export interface FilterInputProps<T> {
-  value: T;
-  setValue: React.Dispatch<React.SetStateAction<T>>;
-  isEnabled: boolean;
-  onInteract?: () => void;
-  setIsEmpty: (isEmpty: boolean) => void;
+
+export interface FieldMapping {
+    nameProps: FilterProps<string>;
+    areaProps: FilterProps<String[]>;
 }
 
-export interface FieldState<T> {
-  value: T;
-  isEnabled?: boolean;
-  isEmpty?: boolean;
+interface FilterBarProps {
+    filters: FieldMapping;
 }
 
-function useFieldProps<T>(initialValue: T): FilterStateAccessor<T> {
-  const [fieldState, setFieldState] = useState<FieldState<T>>({ value: initialValue, isEmpty: !!initialValue, isEnabled: !!initialValue });
-  const onInteract = useCallback(() => setFieldState((prev) => ({ ...prev, isEnabled: true })), []);
-  const setIsEmpty = useCallback((isEmpty: boolean) => {
-    setFieldState((prev) => ({ ...prev, isEmpty, isEnabled: !isEmpty }));
-  }, []);
-  return { fieldState, setFieldState, onInteract, setIsEmpty };
+const FilterBar = ({filters}: FilterBarProps) => {
+    const {nameProps, areaProps} = filters;
+
+    return <s.FilterBarContainer>
+        <s.FilterBarTitle>
+            <FilterIcon/>
+            &nbsp;
+            סינון מתנדבים
+        </s.FilterBarTitle>
+        <s.FilterBarRowsContainer>
+            <FilterRow {...nameProps}>
+                {(props) => <StringFilter {...props} />}
+            </FilterRow>
+            <FilterRow {...areaProps}>
+                {(props) => <MultiSelectFilter
+                    {...props}
+                    options={['מרכז', 'דרום', 'צפון']}
+                />}
+            </FilterRow>
+        </s.FilterBarRowsContainer>
+    </s.FilterBarContainer>;
 }
-
-const FilterBar: React.FC = () => {
-  const nameProps = useFieldProps<string>('אלי');
-  const roleProps = useFieldProps<string>('מפתח תוכנה');
-  const employerProps = useFieldProps<string>('אינטל');
-  const languages = useFieldProps<string[]>(['עברית']);
-
-  return (
-    <s.FilterBarContainer>
-      <s.FilterBarTitle>
-        <Filter />
-        &nbsp; סינון מתנדבים
-      </s.FilterBarTitle>
-      <s.FilterBarRowsContainer>
-        <FilterRow fieldTitle='שם מתנדב' {...nameProps}>
-          {(props) => <StringFilter {...props} />}
-        </FilterRow>
-        <FilterRow fieldTitle='עיסוק' {...roleProps}>
-          {(props) => <StringFilter {...props} />}
-        </FilterRow>
-        <FilterRow fieldTitle='מעסיק' {...employerProps}>
-          {(props) => <StringFilter {...props} />}
-        </FilterRow>
-        <FilterRow fieldTitle='שפות' {...languages}>
-          {(props) => <MultiSelectFilter {...props} options={['עברית', 'אנגלית']} />}
-        </FilterRow>
-      </s.FilterBarRowsContainer>
-    </s.FilterBarContainer>
-  );
-};
 
 export default FilterBar;
