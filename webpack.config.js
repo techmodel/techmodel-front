@@ -1,10 +1,12 @@
-const path = require('path');
+import path from 'path';
+import dotenv from 'dotenv';
 
-import dotenv from "dotenv";
+
 dotenv.config();
+
 const environmentVariables = [
-    "API_URL",
-    "ENVIRONMENT",
+    'API_URL',
+    'ENVIRONMENT',
 ];
 
 module.exports = {
