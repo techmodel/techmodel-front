@@ -1,5 +1,5 @@
 import { SchoolManagerFieldsParams, VolunteerFieldsParams } from '../types/ProfileParams.types';
-import { signUpOption } from '../types/SignUp.types';
+import { signUpUserType } from '../types/SignUp.types';
 
 export const getSchoolManagerSignUpParams: SchoolManagerFieldsParams = {
   gender: ['זכר'],
@@ -22,11 +22,17 @@ export const getVolunteerSignUpParams: VolunteerFieldsParams = {
   proficiency: ['t', 'b'],
 };
 
-export const signUpOptions: signUpOption[] = [
+export const signUpOptions: signUpUserType[] = [
   {
-    title: 'מנהל',
+    title: 'מנהל בית ספר',
     description: 'מצא מתנדבים מתאימים לבית ספר',
     image:
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Felementary-school-kids&psig=AOvVaw097BTVSE95dyyoJt0CWNK7&ust=1649002878456000&source=images&cd=vfe&ved=0CAwQjhxqFwoTCLDa08_k9fYCFQAAAAAdAAAAABAD',
+      'https://www.thoughtco.com/thmb/dHb9-FBMkqRugDiEgTiK9QhXFeA=/3719x3719/smart/filters:no_upscale()/teacher-standing-in-front-of-a-class-of-raised-hands-dv1940073-5a88dfc9875db90036f2af75.jpg',
+  },
+  {
+    title: 'מתנדב',
+    description: 'התנדב למען דור העתיד',
+    image:
+      'https://investinisrael.gov.il/inthenewsimg/104513857-Two_young_women_entrepreneurs.530x298.jpg',
   },
 ];

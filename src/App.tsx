@@ -1,10 +1,9 @@
 import React from 'react';
-import SignUpContainer from './components/SignUp/SignUpContainer/SignUp.container';
-import { getSchoolManagerSignUpParams } from './mocks/signUpParams.mock';
+import SignUpUserType from './components/SignUp/SignupUserType/SignUpUserType';
+import { signUpOptions } from './mocks/signUpParams.mock';
 
 const App = () => {
-  return <SignUpContainer fieldsParam={getSchoolManagerSignUpParams} userType={'SchoolManager'} />;
-
+  return <SignUpUserType userTypes={signUpOptions} />;
 };
 
 export default App;
