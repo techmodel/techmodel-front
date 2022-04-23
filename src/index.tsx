@@ -10,6 +10,10 @@ import { ThemeProvider } from 'styled-components';
 import themes from './theme/themes';
 import { GlobalStyles } from './theme/GlobalStyles';
 import Layout from './Layout';
+import SignUpContainer from './components/SignUp/SignUpContainer/SignUp.container';
+import SignUpUserType from './components/SignUp/SignupUserType/SignUpUserType';
+import { getSchoolManagerSignUpParams, getVolunteerSignUpParams, signUpOptions } from './mocks/signUpParams.mock';
+import SignUpDetailsForm from './components/SignUp/SignUpDetails/SignUpDetailsForm/SignUpDetailsForm';
 
 const client = new QueryClient();
 
@@ -24,7 +28,12 @@ ReactDOM.render(
             <Layout>
               <BrowserRouter>
                 <Routes>
-                  <Route path='/' element={<App/>} />
+                  <Route path='/signUp' element={<SignUpUserType userTypes={signUpOptions} />} />
+                  <Route path='/signUp/volunteer' element={<SignUpDetailsForm fieldsParam={getVolunteerSignUpParams} userType={'Volunteer'} />} />
+                  <Route
+                    path='/signUp/schoolManager'
+                    element={<SignUpDetailsForm fieldsParam={getSchoolManagerSignUpParams} userType={'SchoolManager'} />}
+                  />
                 </Routes>
               </BrowserRouter>
             </Layout>

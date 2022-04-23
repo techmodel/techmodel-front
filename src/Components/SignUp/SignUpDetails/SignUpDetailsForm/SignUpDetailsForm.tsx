@@ -7,6 +7,7 @@ import { SchoolFields, UserFields, VolunteerFields } from '../../../../types/Use
 import SchoolManagerSignUp from '../SignUpDetailsOptions/SchoolManagerSignUp';
 import * as s from './SignUpDetailsForm.styles';
 import VolunteerSignUp from '../SignUpDetailsOptions/VolunteerSignUp';
+import { Link } from 'react-router-dom';
 
 const SignUpDetailsForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParams; userType: string }) => {
   const [formValues, setFormValues] = useState<UserFields>({ gender: '', populationType: [], language: [], eventType: [], name: '' });
@@ -85,6 +86,7 @@ const SignUpDetailsForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFiel
           Submit
         </Button>
       </form>
+      <Link to='/signUp'>Return</Link>
     </s.SignUpDetailsForm>
   );
 };

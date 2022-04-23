@@ -10,7 +10,7 @@ export const UserType = styled(Box)`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-width: 10em;
+  width: 15em;
   flex-grow: 0;
   cursor: pointer;
 

@@ -28,11 +28,12 @@ export const signUpOptions: signUpUserType[] = [
     description: 'מצא מתנדבים מתאימים לבית ספר',
     image:
       'https://www.thoughtco.com/thmb/dHb9-FBMkqRugDiEgTiK9QhXFeA=/3719x3719/smart/filters:no_upscale()/teacher-standing-in-front-of-a-class-of-raised-hands-dv1940073-5a88dfc9875db90036f2af75.jpg',
+    path: '/signUp/schoolManager',
   },
   {
     title: 'מתנדב',
     description: 'התנדב למען דור העתיד',
-    image:
-      'https://investinisrael.gov.il/inthenewsimg/104513857-Two_young_women_entrepreneurs.530x298.jpg',
+    image: 'https://investinisrael.gov.il/inthenewsimg/104513857-Two_young_women_entrepreneurs.530x298.jpg',
+    path: '/signUp/volunteer',
   },
 ];
