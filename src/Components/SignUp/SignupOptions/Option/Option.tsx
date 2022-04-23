@@ -1,4 +1,4 @@
-import { ProfileFieldsParams } from '../../../../Types/ProfileParams.types';
+import { ProfileFieldsParams } from '../../../../types/ProfileParams.types';
 import * as s from './Option.styles';
 
 const Option = ({ option }: { option: any }) => {

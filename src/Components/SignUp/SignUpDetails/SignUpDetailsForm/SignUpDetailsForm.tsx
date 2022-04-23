@@ -2,13 +2,13 @@ import { Grid, TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import React, { useState } from 'react';
-import { ProfileFieldsParams, SchoolManagerFieldsParams, VolunteerFieldsParams } from '../../../../Types/ProfileParams.types';
-import { SchoolFields, UserFields, VolunteerFields } from '../../../../Types/UserFields.types';
-import SchoolManagerSignUp from '../SignUpOptions/SchoolManagerSignUp';
-import * as s from './SignUp.styles';
-import VolunteerSignUp from '../SignUpOptions/VolunteerSignUp';
+import { ProfileFieldsParams, SchoolManagerFieldsParams, VolunteerFieldsParams } from '../../../../types/ProfileParams.types';
+import { SchoolFields, UserFields, VolunteerFields } from '../../../../types/UserFields.types';
+import SchoolManagerSignUp from '../SignUpDetailsOptions/SchoolManagerSignUp';
+import * as s from './SignUpDetailsForm.styles';
+import VolunteerSignUp from '../SignUpDetailsOptions/VolunteerSignUp';
 
-const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParams; userType: string }) => {
+const SignUpDetailsForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParams; userType: string }) => {
   const [formValues, setFormValues] = useState<UserFields>({ gender: '', populationType: [], language: [], eventType: [], name: '' });
 
   const handleInputChange = (e: any) => {
@@ -30,7 +30,7 @@ const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParam
   };
 
   return (
-    <s.SignUpForm>
+    <s.SignUpDetailsForm>
       <form onSubmit={handleSubmit}>
         <h2>רק קצת פרטים</h2>
         <TextField required id={'name'} label='שם' onChange={handleInputChange} name={'name'} value={formValues['name']} />
@@ -85,7 +85,7 @@ const SignUpForm = ({ fieldsParam, userType }: { fieldsParam: ProfileFieldsParam
           Submit
         </Button>
       </form>
-    </s.SignUpForm>
+    </s.SignUpDetailsForm>
   );
 };
-export default SignUpForm;
+export default SignUpDetailsForm;

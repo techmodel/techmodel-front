@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SignUpForm = styled.div`
+export const SignUpDetailsForm = styled.div`
   margin-left: auto;
   margin-right: auto;
   display: flex;

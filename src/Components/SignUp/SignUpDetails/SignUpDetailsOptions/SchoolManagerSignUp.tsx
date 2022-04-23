@@ -1,7 +1,7 @@
 import { Grid, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { SchoolManagerFieldsParams } from '../../../../Types/ProfileParams.types';
-import { SchoolFields } from '../../../../Types/UserFields.types';
+import { SchoolManagerFieldsParams } from '../../../../types/ProfileParams.types';
+import { SchoolFields } from '../../../../types/UserFields.types';
 
 const SchoolManagerSignUp = ({
   fieldsParam,

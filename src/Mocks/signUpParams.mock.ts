@@ -1,5 +1,5 @@
-import { SchoolManagerFieldsParams, VolunteerFieldsParams } from '../Types/ProfileParams.types';
-import { signUpOption } from '../Types/SignUp.types';
+import { SchoolManagerFieldsParams, VolunteerFieldsParams } from '../types/ProfileParams.types';
+import { signUpOption } from '../types/SignUp.types';
 
 export const getSchoolManagerSignUpParams: SchoolManagerFieldsParams = {
   gender: ['זכר'],

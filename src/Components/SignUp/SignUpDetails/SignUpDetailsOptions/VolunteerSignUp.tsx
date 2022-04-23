@@ -1,7 +1,7 @@
 import { Grid, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { VolunteerFieldsParams } from '../../../../Types/ProfileParams.types';
-import { VolunteerFields } from '../../../../Types/UserFields.types';
+import { VolunteerFieldsParams } from '../../../../types/ProfileParams.types';
+import { VolunteerFields } from '../../../../types/UserFields.types';
 
 const VolunteerSignUp = ({
   fieldsParam,
