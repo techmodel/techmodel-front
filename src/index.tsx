@@ -17,19 +17,19 @@ ReactDOM.render(
   <QueryClientProvider client={client}>
     <ThemeSwitchProvider>
       <ThemeSwitchContext.Consumer>
-        {({theme}) => <ThemeProvider theme={themes[theme]}>
-          <GlobalStyles />
-          
-          <Layout>
-            <BrowserRouter>
-              <Routes>
-                <Route path='/' element={<HomePage />} />
-                <Route path='volunteer' element={null} />
-              </Routes>
-            </BrowserRouter>
-          </Layout>
-          
-        </ThemeProvider>}
+        {({ theme }) => (
+          <ThemeProvider theme={themes[theme]}>
+            <GlobalStyles />
+
+            <Layout>
+              <BrowserRouter>
+                <Routes>
+                  <Route path='/' element={<App/>} />
+                </Routes>
+              </BrowserRouter>
+            </Layout>
+          </ThemeProvider>
+        )}
       </ThemeSwitchContext.Consumer>
     </ThemeSwitchProvider>
   </QueryClientProvider>,

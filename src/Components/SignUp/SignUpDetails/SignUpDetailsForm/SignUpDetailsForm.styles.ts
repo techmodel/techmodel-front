@@ -5,7 +5,7 @@ export const SignUpDetailsForm = styled.div`
   margin-right: auto;
   display: flex;
   width: 20em;
-  border: 5px solid pink;
+  border: #dadada 3px solid;
   justify-content: center;
 
   autocomplete {
