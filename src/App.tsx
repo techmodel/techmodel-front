@@ -4,6 +4,7 @@ import { getSchoolManagerSignUpParams } from './mocks/signUpParams.mock';
 
 const App = () => {
   return <SignUpContainer fieldsParam={getSchoolManagerSignUpParams} userType={'SchoolManager'} />;
+
 };
 
 export default App;
