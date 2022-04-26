@@ -1,8 +1,8 @@
 export default {
-    apiUrl: process.env.API_URL ?? 'localhost:8080',
+    backend_baseUrl: process.env.API_URL ?? 'localhost:8080',
 } as Partial<Environment>;
 
 
 export interface Environment {
-    apiUrl: string,
+    backend_baseUrl: string,
 }

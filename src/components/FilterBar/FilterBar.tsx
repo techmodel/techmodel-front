@@ -3,7 +3,7 @@ import FilterIcon from '@mui/icons-material/FilterList';
 
 import * as s from './FilterBar.styled';
 import FilterRow from './FilterRow';
-import StringFilter from './FilterRow/filterInputs/StringFilter/StringFilter';
+import StringFilter from './FilterRow/filterInputs/stringFilter/StringFilter';
 import MultiSelectFilter from './FilterRow/filterInputs/multiSelectFilter/MultiSelectFilter';
 import { FilterProps } from './FilterRow/filterInputs/hooks';
 

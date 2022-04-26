@@ -12,24 +12,24 @@ export default function VolunteerModal({ volunteer }: { volunteer: Volunteer }) 
           <s.PersonalDetails>
             <s.Username>
               <Person fontSize='large' />
-              {volunteer.name}
+              {volunteer.first_name} {}
             </s.Username>
             <s.AdditionalField>
               <Language /> {volunteer.languages?.join(', ')}
             </s.AdditionalField>
             <s.AdditionalField>
-              <Phone /> {volunteer.contactDetails.phoneNumber}
+              <Phone /> {volunteer.phone}
             </s.AdditionalField>
             <s.AdditionalField>
-              <MailOutline /> {volunteer.contactDetails.emailAddress}
+              <MailOutline /> {volunteer.email}
             </s.AdditionalField>
             <div>
               <s.Header>עיסוק</s.Header>
-              <s.Occupation>{volunteer.occupation.role}</s.Occupation>
+              <s.Occupation>{volunteer.company_roles}</s.Occupation>
             </div>
             <div>
               <s.Header>מקום תעסוקה</s.Header>
-              <s.Occupation>{volunteer.occupation.employer}</s.Occupation>
+              <s.Occupation>{volunteer.company_name}</s.Occupation>
             </div>
           </s.PersonalDetails>
           <s.ProfilePhoto>

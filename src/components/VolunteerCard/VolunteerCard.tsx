@@ -18,10 +18,10 @@ export default function VolunteerCard({ volunteer }: { volunteer: Volunteer }) {
           alt='1'
         />
       </s.ProfilePhoto>
-      <s.Username>{volunteer.name}</s.Username>
+      <s.Username>{volunteer.first_name}</s.Username>
       <s.Occupation>
-        {volunteer.occupation.role}
-        <br />@ {volunteer.occupation.employer}
+        {volunteer.company_roles}
+        <br />@ {volunteer.company_name}
       </s.Occupation>
       <Modal style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} open={open} onClose={(...a) => setOpen(false)}>
         <VolunteerModal volunteer={volunteer} />
