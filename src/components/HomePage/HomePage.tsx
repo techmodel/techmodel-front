@@ -22,6 +22,7 @@ const HomePage = () => {
     () => searchEntity('volunteer', filtersList),
     { enabled: true },
   );
+<<<<<<< HEAD
 
   const [entity, setEntity] = useState([]);
 
@@ -44,6 +45,12 @@ const HomePage = () => {
           volunteers={entity}
         />
       )}
+=======
+  console.log(volunteersQuery);
+  return (
+    <Home>
+      <VolunteerList volunteers={volunteerList} />
+>>>>>>> dev
       <FilterBar filters={filters} />
     </Home>
   );
