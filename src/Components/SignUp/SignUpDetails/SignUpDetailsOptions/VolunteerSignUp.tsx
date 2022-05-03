@@ -28,7 +28,7 @@ const VolunteerSignUp = ({
         id={'event'}
         multiple
         options={fieldsParam.eventFocus}
-        renderInput={(params) => <TextField {...params} label={'תחום ההרצאה'} variant='outlined' />}
+        renderInput={(params:any) => <TextField {...params} label={'תחום ההרצאה'} variant='outlined' />}
         value={formValues['eventFocus']}
         onChange={handleComplexInputChange('event')}
       />
@@ -36,7 +36,7 @@ const VolunteerSignUp = ({
         id={'proficiency'}
         multiple
         options={fieldsParam.proficiency}
-        renderInput={(params) => <TextField {...params} label={'מומחיות'} variant='outlined' />}
+        renderInput={(params:any) => <TextField {...params} label={'מומחיות'} variant='outlined' />}
         value={formValues['proficiency']}
         onChange={handleComplexInputChange('proficiency')}
       />

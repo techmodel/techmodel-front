@@ -12,7 +12,7 @@ import { GlobalStyles } from './theme/GlobalStyles';
 import Layout from './Layout';
 import SignUpContainer from './components/SignUp/SignUpContainer/SignUp.container';
 import SignUpUserType from './components/SignUp/SignupUserType/SignUpUserType';
-import { getSchoolManagerSignUpParams, getVolunteerSignUpParams, signUpOptions } from './mocks/signUpParams.mock';
+import { getSchoolManagerSignUpParams, getVolunteerSignUpParams, signUpOptions } from './Mocks/signUpParams.mock';
 import SignUpDetailsForm from './components/SignUp/SignUpDetails/SignUpDetailsForm/SignUpDetailsForm';
 
 const client = new QueryClient();
