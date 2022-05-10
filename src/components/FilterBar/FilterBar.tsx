@@ -8,7 +8,6 @@ import MultiSelectFilter from './FilterRow/filterInputs/multiSelectFilter/MultiS
 import { FilterProps } from './FilterRow/filterInputs/hooks';
 
 export interface FieldMapping {
-  nameProps: FilterProps<string>;
   areaProps: FilterProps<String[]>;
 }
 
@@ -16,8 +15,17 @@ interface FilterBarProps {
   filters: FieldMapping;
 }
 
+const areaOptions = [
+'מחוז צפון',
+'מחוז חיפה',
+'מחוז מרכז',
+'מחוז ירושלים',
+'מחוז יהודה ושומרון',
+'מחוז דרום',
+]
+
 const FilterBar = ({ filters }: FilterBarProps) => {
-  const { nameProps, areaProps } = filters;
+  const { areaProps } = filters;
 
   return (
     <s.FilterBarContainer>
@@ -26,8 +34,7 @@ const FilterBar = ({ filters }: FilterBarProps) => {
         &nbsp; סינון מתנדבים
       </s.FilterBarTitle>
       <s.FilterBarRowsContainer>
-        <FilterRow {...nameProps}>{(props) => <StringFilter {...props} />}</FilterRow>
-        <FilterRow {...areaProps}>{(props) => <MultiSelectFilter {...props} options={['מרכז', 'דרום', 'צפון']} />}</FilterRow>
+        <FilterRow {...areaProps}>{(props) => <MultiSelectFilter {...props} options={areaOptions} />}</FilterRow>
       </s.FilterBarRowsContainer>
     </s.FilterBarContainer>
   );
