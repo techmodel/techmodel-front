@@ -9,4 +9,5 @@ export interface Volunteer {
   email?: string;
   phone?: string;
   profilePictureLocation: string;
+  geo_area: string;
 }
