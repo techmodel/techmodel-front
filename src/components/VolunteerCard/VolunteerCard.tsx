@@ -18,7 +18,7 @@ export default function VolunteerCard({ volunteer }: { volunteer: Volunteer }) {
           alt='1'
         />
       </s.ProfilePhoto>
-      <s.Username>{volunteer.first_name}</s.Username>
+      <s.Username>{volunteer.first_name} {volunteer.last_name}</s.Username>
       <s.Occupation>
         {volunteer.company_roles}
         <br />@ {volunteer.company_name}
