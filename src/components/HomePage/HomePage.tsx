@@ -22,18 +22,12 @@ const HomePage = () => {
     () => searchEntity('volunteer', filtersList),
     { enabled: true },
   );
-<<<<<<< HEAD
 
   const [entity, setEntity] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await searchEntity('manager', filtersList);
-      setEntity(data);
-    };
-
-    fetchData();
-  }, []);
+    setEntity(volunteersQuery.data);
+  }, [volunteersQuery]);
 
   return (
     <Home>
@@ -41,16 +35,9 @@ const HomePage = () => {
 
       {entity && (
         <VolunteerList
-          //TODO: get the userType from the login
           volunteers={entity}
         />
       )}
-=======
-  console.log(volunteersQuery);
-  return (
-    <Home>
-      <VolunteerList volunteers={volunteerList} />
->>>>>>> dev
       <FilterBar filters={filters} />
     </Home>
   );
@@ -60,7 +47,6 @@ export default HomePage;
 
 function getFilters(): FieldMapping {
   return {
-    nameProps: useStringFilter('name', 'שם מתנדב'),
-    areaProps: useMultiSelectFilter('area', 'איזור'),
+    areaProps: useMultiSelectFilter('geo_area', 'איזור'),
   };
 }
