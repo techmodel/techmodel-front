@@ -12,7 +12,7 @@ export default function VolunteerModal({ volunteer }: { volunteer: Volunteer }) 
           <s.PersonalDetails>
             <s.Username>
               <Person fontSize='large' />
-              {volunteer.first_name} {}
+              {volunteer.first_name} {volunteer.last_name}
             </s.Username>
             <s.AdditionalField>
               <Language /> {volunteer.languages?.join(', ')}
@@ -30,6 +30,10 @@ export default function VolunteerModal({ volunteer }: { volunteer: Volunteer }) 
             <div>
               <s.Header>מקום תעסוקה</s.Header>
               <s.Occupation>{volunteer.company_name}</s.Occupation>
+            </div>
+            <div>
+              <s.Header>מיקום בארץ</s.Header>
+              <s.Occupation>{volunteer.geo_area}</s.Occupation>
             </div>
           </s.PersonalDetails>
           <s.ProfilePhoto>
