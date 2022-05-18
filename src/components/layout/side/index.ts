@@ -1,3 +1,3 @@
-import Side from './Side';
+import Side from './Side.styled';
 
 export default Side;

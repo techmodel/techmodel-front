@@ -1,6 +1,7 @@
 :root {
   --main-viewport-width: 85%;
   --side-viewport-width: calc(100% - var(--main-viewport-width));
+  --header-height: 12%;
 }
 
 html, body, #root {

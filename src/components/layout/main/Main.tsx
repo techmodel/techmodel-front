@@ -1,14 +1,10 @@
-import { FC, ReactNode } from 'react';
-import './main.css';
+import styled from 'styled-components';
 
-interface IProps {
-    children?: ReactNode;
-}
-
-const Main: FC<IProps> = ({children}) => {
-    return (
-        <main id="main-view">{children}</main>
-    );
-}
+const Main = styled.main`
+    height: 100%;
+    width: var(--main-viewport-width);
+    position: relative;
+    overflow-x: hidden;
+`
 
 export default Main;
