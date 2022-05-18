@@ -1,0 +1,6 @@
+aside#sidebar-view {
+    height: 100%;
+    width: var(--side-viewport-width);
+    position: relative;
+    background-color: #dee2e3;
+}

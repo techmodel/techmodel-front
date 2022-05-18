@@ -1,0 +1,5 @@
+main#main-view {
+    height: 100%;
+    width: var(--main-viewport-width);
+    position: relative;
+}
