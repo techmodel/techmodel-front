@@ -8,9 +8,10 @@ import { Content, Header } from 'components/layout/app';
 import ThemeSwitchProvider from 'providers/theme/ThemeSwitchProvider';
 import ThemeSwitchContext from 'providers/theme/ThemeSwitchContext';
 import themes from 'providers/theme/themes';
-import Navbar from 'components/navbar';
-import './index.css';
 import FilterBar from 'components/filter/bar/FilterBar';
+import Navbar from 'components/navbar';
+import 'react-tabs/style/react-tabs.css';
+import './index.css';
 
 const root = createRoot(
   document.getElementById('root') as HTMLElement

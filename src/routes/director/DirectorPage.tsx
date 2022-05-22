@@ -9,11 +9,9 @@ interface IProps {
 const DirectorPage: FC<IProps> = () => {
     const volunteerList = volunteerService.getAll();
     return (
-        <main className='director-page'>
-            <VolunteerList
-                volunteers={volunteerList}
-            />
-        </main>
+        <VolunteerList
+            volunteers={volunteerList}
+        />
     )
 };
 
