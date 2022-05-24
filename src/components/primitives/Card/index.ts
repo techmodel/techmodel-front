@@ -1,1 +1,1 @@
-export {default} from './Card.styled';
+export { Card, Picture } from './Card.styled';
