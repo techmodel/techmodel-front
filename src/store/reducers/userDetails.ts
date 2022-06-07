@@ -1,15 +1,15 @@
-import { Action } from 'types/store';
+import { handleActions } from 'redux-actions';
+import { authActionTypes } from 'store/actions/auth';
 
-const initialState = {};
-
-const userDetailsReducer = (state = initialState, action: Action) => {
-  const { type, payload } = action;
-
-  switch (type) {
-    default: {
-      return state;
-    }
-  }
+const initialState = {
+  userId: '',
 };
+
+const userDetailsReducer = handleActions({
+  [authActionTypes.setUserId]: (state, action) => ({
+    ...state,
+    ...action.payload
+  })
+}, initialState);
 
 export default userDetailsReducer;
