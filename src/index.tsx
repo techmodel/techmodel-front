@@ -16,6 +16,7 @@ import 'react-tabs/style/react-tabs.css';
 import './index.css';
 import Login from 'routes/login';
 import { msalConfig } from 'config/auth.config';
+import Register from 'routes/register';
 
 const msalInstance = new PublicClientApplication(msalConfig);
 
@@ -40,6 +41,7 @@ root.render(
                                         <Main>
                                             <Routes>
                                                 <Route path='/' element={<Login />} />
+                                                <Route path='/register' element={<Register />} />
                                                 <Route path='/director' element={<DirectorPage />} />
                                                 <Route path='/volunteer' element={<VolunteerPage />} />
                                             </Routes>

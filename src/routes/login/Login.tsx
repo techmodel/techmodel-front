@@ -3,7 +3,7 @@ import axios from "axios"
 import { UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
 import { useNavigate } from 'react-router-dom';
 import { loginRequest } from '../../config/auth.config';
-import { TypeIdToUser } from '../../types/user'
+import { UserType } from '../../types/user'
 
 
 
@@ -20,14 +20,14 @@ const Login = () => {
                     userId: accounts[0].localAccountId
                 });
                 const { userDetails, isFound, userToken } = response.data;
-                const userTypeId: keyof typeof TypeIdToUser = response.data.userTypeId;
+                const userType: keyof typeof UserType = response.data.userType;
                 if (!isFound) {
-                    navigate(`/register`)
+                    navigate(`/register`, {state:{userInfo: accounts[0]}});
                 }
                 else {
                     localStorage.setItem("token", userToken);
                     //TODO: Add userDetails to Store
-                    navigate(`/${TypeIdToUser[userTypeId]}`)
+                    navigate(`/${userType}`)
                 }
             } catch (err) {
                 navigate(`/`)
@@ -42,6 +42,7 @@ const Login = () => {
         <>
             <UnauthenticatedTemplate>
                 <button onClick={() => instance.loginRedirect(loginRequest)}>Login with google</button>
+                <button onClick={() => navigate(`/register`, {state:{userInfo: {email: "mynameis"}}})}>Login not with google</button>
             </UnauthenticatedTemplate>
         </>
     )
