@@ -42,7 +42,7 @@ const Login = () => {
         <>
             <UnauthenticatedTemplate>
                 <button onClick={() => instance.loginRedirect(loginRequest)}>Login with google</button>
-                <button onClick={() => navigate(`/register`, {state:{userInfo: {email: "mynameis"}}})}>Login not with google</button>
+                <button onClick={() => navigate(`/register`, {state:{userInfo: {email: "mynameis@gmail.com"}}})}>Register</button>
             </UnauthenticatedTemplate>
         </>
     )
