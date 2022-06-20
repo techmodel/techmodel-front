@@ -15,9 +15,9 @@ function Register() {
     
     const [userType, setUserType] = useState<keyof typeof UserType>('volunteer');
     const [email] = useState<string>(location.state.userInfo.email);
-    const [firstName, setFirstName] = useState<string>();
-    const [lastName, setLastName] = useState<string>();
-    const [phoneNum, setPhoneNum] = useState<string>();
+    const [firstName, setFirstName] = useState<string>('');
+    const [lastName, setLastName] = useState<string>('');
+    const [phoneNum, setPhoneNum] = useState<string>('');
 
     // principle props
     const [schoolName, setSchoolName] = useState<string>('הכנס כאן');
@@ -42,6 +42,8 @@ function Register() {
     const submitForm = async () => {
         setLoading(true)
         try {
+            // TODO: change the request according to how the api is
+            // TODO: move the url to the backend to a constant somewhere that all of the app uses
             const response = await axios.post('http://localhost:8080/api/user', {
                 userType,
                 email,
