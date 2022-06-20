@@ -1,13 +1,18 @@
-import { Dispatch, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Select, MenuItem } from '@mui/material';
+import { ChangeEvent, Dispatch, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from "axios"
+import { Select, MenuItem, CircularProgress } from '@mui/material';
 import { SchoolCommunityType, SchoolType } from 'types/institution';
 import { UserType } from 'types/user';
 import { Language } from 'types/language';
 import { District, City } from 'types/location';
 
 function Register() {
+    const navigate = useNavigate();
     const location: any = useLocation();
+
+    const [loading, setLoading] = useState<boolean>(false);
+    
     const [userType, setUserType] = useState<keyof typeof UserType>('volunteer');
     const [email] = useState<string>(location.state.userInfo.email);
     const [firstName, setFirstName] = useState<string>();
@@ -30,76 +35,107 @@ function Register() {
     // director props
     const [volunteeringProgramName, setVolunteeringProgramName] = useState<string>('תוכנית התנדבות כלשהי');
 
-    const setValue = (setFunc: Dispatch<any>, value: any) => {
-        setFunc(value)
+    const setToEventTragetValue = (setFunc: Dispatch<any>, event: ChangeEvent<HTMLInputElement>) => {
+        setFunc(event.target.value)
     }
 
-    const submitForm = () => {
-        // TODO: missing part
+    const submitForm = async () => {
+        setLoading(true)
+        try {
+            const response = await axios.post('http://localhost:8080/api/user', {
+                userType,
+                email,
+                firstName,
+                lastName,
+                phoneNum,
+                schoolName,
+                schoolType,
+                schoolCommunityType,
+                schoolLanguage,
+                schoolLocation,
+                schoolCity,
+                schoolAddress,
+                schoolRelatedProg,
+                companyName,
+                volunteeringProgramName,
+            });
+            const { userDetails, userToken } = response.data;
+            localStorage.setItem("token", userToken);
+            //TODO: Add userDetails to Store
+            navigate(`/${userType}`)
+            return
+        } catch(e) {
+            console.log('there was an error', e)
+            // TODO: add snackbars that show an error
+            // TODO: add error handling logic for cases when the user exists
+            // TODO: add error handling logic for cases when there is internal server error
+        }
+        setLoading(false)
     }
 
     let form;
     if (userType === 'volunteer') {
         form = <div>
             <p>Company Name</p>
-            <input value={companyName} onChange={e => setValue(setCompanyName, e.target.value)} />
+            <input value={companyName} onChange={e => setToEventTragetValue(setCompanyName, e)} />
         </div>
     }
     if (userType === 'principle') {
         form = <div>
             <p>School Name</p>
-            <input value={schoolName} onChange={e => setValue(setSchoolName, e.target.value)} />
+            <input value={schoolName} onChange={e => setToEventTragetValue(setSchoolName, e)} />
             <p>School Type</p>
-            <input value={schoolType} onChange={e => setValue(setSchoolType, e.target.value)} />
+            <input value={schoolType} onChange={e => setToEventTragetValue(setSchoolType, e)} />
             <p>School Type Community</p>
-            <input value={schoolCommunityType} onChange={e => setValue(setSchoolCommunityType, e.target.value)} />
+            <input value={schoolCommunityType} onChange={e => setToEventTragetValue(setSchoolCommunityType, e)} />
             <p>School Language</p>
-            <input value={schoolLanguage} onChange={e => setValue(setSchoolLanguage, e.target.value)} />
+            <input value={schoolLanguage} onChange={e => setToEventTragetValue(setSchoolLanguage, e)} />
             <p>School Location</p>
-            <input value={schoolLocation} onChange={e => setValue(setSchoolLocation, e.target.value)} />
+            <input value={schoolLocation} onChange={e => setToEventTragetValue(setSchoolLocation, e)} />
             <p>School City</p>
-            <input value={schoolCity} onChange={e => setValue(setSchoolCity, e.target.value)} />
+            <input value={schoolCity} onChange={e => setToEventTragetValue(setSchoolCity, e)} />
             <p>School Address</p>
-            <input value={schoolAddress} onChange={e => setValue(setSchoolAddress, e.target.value)} />
+            <input value={schoolAddress} onChange={e => setToEventTragetValue(setSchoolAddress, e)} />
             <p>School School Related Program</p>
-            <input value={schoolRelatedProg} onChange={e => setValue(setSchoolRelatedProg, e.target.value)} />
+            <input value={schoolRelatedProg} onChange={e => setToEventTragetValue(setSchoolRelatedProg, e)} />
         </div>
     }
     if (userType === 'director'){
         form = <div>
             <p>Volunteer Program Name</p>
-            <input value={volunteeringProgramName} onChange={e => setValue(setVolunteeringProgramName, e.target.value)} />
+            <input value={volunteeringProgramName} onChange={e => setToEventTragetValue(setVolunteeringProgramName, e)} />
         </div>
     }
 
     return (
         <div>
-            
+            <Select
+                value={userType}
+                label="סוג משתמש"
+                onChange={(e) => setUserType(e.target.value as keyof typeof UserType)}
+            >
+                {Object.keys(UserType).filter(v => isNaN(v as any)).map(v => <MenuItem value={v}>{v}</MenuItem>)}
+            </Select>
 
-        <p>HEY!</p>
-        <Select
-            value={userType}
-            label="סוג משתמש"
-            onChange={(e) => setUserType(e.target.value as keyof typeof UserType)}
-        >
-            {Object.keys(UserType).filter(v => isNaN(v as any)).map(v => <MenuItem value={v}>{v}</MenuItem>)}
-        </Select>
+            <p>Email: {email}</p>
+            <p>First Name</p>
+            <input value={firstName} onChange={e => setToEventTragetValue(setFirstName, e)} />
+            <p>Last Name</p>
+            <input value={lastName} onChange={e => setToEventTragetValue(setLastName, e)} />
+            <p>Phone Number</p>
+            <input value={phoneNum} onChange={e => setToEventTragetValue(setPhoneNum, e)} />
 
-        <p>Email: {email}</p>
-        <p>First Name</p>
-        <input value={firstName} onChange={e => setValue(setFirstName, e.target.value)} />
-        <p>Last Name</p>
-        <input value={lastName} onChange={e => setValue(setLastName, e.target.value)} />
-        <p>Phone Number</p>
-        <input value={phoneNum} onChange={e => setValue(setPhoneNum, e.target.value)} />
+            {form}
 
-        {form}
-
-        <div>
-            <button onClick={submitForm}>
-                Register
-            </button>
-        </div>
+            {loading ?
+                <CircularProgress/>
+                :
+                <div>
+                    <button onClick={submitForm}>
+                        Register
+                    </button>
+                </div>
+            }
         </div>
     );
 }
