@@ -5,11 +5,11 @@ const initialState = {
   userId: '',
 };
 
-const userDetailsReducer = handleActions({
+const authReducer = handleActions({
   [authActionTypes.setUserId]: (state, action) => ({
     ...state,
     ...action.payload
   })
 }, initialState);
 
-export default userDetailsReducer;
+export default authReducer;
