@@ -5,7 +5,7 @@ import { MsalProvider } from '@azure/msal-react';
 import { PublicClientApplication } from '@azure/msal-browser';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
-import { LandingPage, DirectorPage, VolunteerPage } from 'routes';
+import { DirectorPage, VolunteerPage } from 'routes';
 import { Main, Side, AppWrapper } from 'components/layout';
 import { Content, Header } from 'components/layout/app';
 import ThemeSwitchProvider from 'providers/theme/ThemeSwitchProvider';
