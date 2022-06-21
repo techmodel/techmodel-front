@@ -12,3 +12,9 @@ export interface User {
     companyRole: string;
     geoArea: string;
 }
+
+export enum UserType {
+    volunteer,
+    principle,
+    director,
+}
