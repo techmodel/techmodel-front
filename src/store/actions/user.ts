@@ -1,25 +1,30 @@
-import { createAction } from 'redux-actions';
+import { Action, createAction } from 'redux-actions';
 import { User } from 'types/user';
 
 export const userActionTypes = {
-    fetchUserDetails: 'user/FETCH_USER_DETAILS',
-    successUserDetails: 'user/SUCCESS_USER_DETAILS',
-    failureUserDetails: 'user/FAILURE_USER_DETAILS',
+    startLogin: 'user/START_LOGIN',
+    successLogin: 'user/SUCCESS_LOGIN',
+    failureLogin: 'user/FAILURE_LOGIN',
 };
 
-export const fetchUserDetails = createAction(userActionTypes.fetchUserDetails);
+export const startLogin = createAction(
+    userActionTypes.startLogin,
+    (userId: string) => ({ payload: { userId } })
+);
 
-export const successUserDetails = createAction(
-    userActionTypes.successUserDetails,
+export const successLogin = createAction(
+    userActionTypes.successLogin,
     (user: User) => ({ payload: { ...user }})
 );
 
-export const failureUserDetails = createAction(userActionTypes.failureUserDetails, (error: Error) => ({ payload: { error } }));
+export const failureLogin = createAction(userActionTypes.failureLogin, (error: Error) => ({ payload: { error } }));
 
-const userActions = {
-    [userActionTypes.fetchUserDetails]: fetchUserDetails,
-    [userActionTypes.successUserDetails]: successUserDetails,
-    [userActionTypes.failureUserDetails]: failureUserDetails,
+const userActions: {
+    [actionType: string]: (...args: any[]) => Action<any>
+} = {
+    [userActionTypes.startLogin]: startLogin,
+    [userActionTypes.successLogin]: successLogin,
+    [userActionTypes.failureLogin]: failureLogin,
 }
 
 export default userActions;

@@ -1,13 +1,13 @@
 import axios from 'axios';
 import settings from 'settings';
-import { UserType } from 'types/user';
+import { LoginResponse, UserType } from 'types/user';
 import { SchoolType, SchoolCommunityType } from 'types/institution';
 import { Language } from 'types/language';
 import { City, District } from 'types/location';
 
 const client = axios.create({baseURL: settings.backendUrl});
 
-export const login = async (userId: string) => {
+export const login = async (userId: string): Promise<LoginResponse> => {
     try {
         const response = await client.post(settings.loginRoute, {userId});
 
@@ -67,3 +67,10 @@ export const register = async (
         console.error(error);
     }
 }
+
+const userApi = {
+    login,
+    register,
+};
+
+export default userApi;

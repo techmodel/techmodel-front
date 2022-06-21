@@ -19,9 +19,9 @@ const initialState = {
 }
 
 const userReducer = handleActions({
-    [userActionTypes.fetchUserDetails]: () => ({ ...initialState, isLoading: true }),
-    [userActionTypes.successUserDetails]: (state, { payload }) => ({ ...state, ...payload, isLoading: false }),
-    [userActionTypes.failureUserDetails]: (_, { payload: { error } }) => ({ ...initialState, error, isLoading: false }),
+    [userActionTypes.startLogin]: () => ({ ...initialState, isLoading: true }),
+    [userActionTypes.successLogin]: (state, { payload }) => ({ ...state, ...payload, isLoading: false }),
+    [userActionTypes.failureLogin]: (_, { payload: { error } }) => ({ ...initialState, error, isLoading: false }),
 }, initialState);
 
 export default userReducer;

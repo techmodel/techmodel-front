@@ -18,3 +18,9 @@ export enum UserType {
     principle,
     director,
 }
+
+export type LoginResponse = {
+    isFound: boolean;
+    userDetails?: any;
+    userToken?: string;
+}
