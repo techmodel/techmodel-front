@@ -1,7 +1,7 @@
 export interface Volunteer {
     name: string;
     languages: string[];
-    gender?: 'זכר' | 'נקבה' | 'אחר';
+    gender?: 'זכר' | 'נקבה' | string;
     shortDescription?: string;
     occupation: {
         role: string;
@@ -12,4 +12,4 @@ export interface Volunteer {
         phoneNumber?: string;
     };
     profilePictureLocation: string;
-};
+}

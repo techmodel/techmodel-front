@@ -1,52 +1,38 @@
-import { StrictMode } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { createRoot } from 'react-dom/client';
+import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import HomePage from './components/HomePage/HomePage';
+import App from './App';
+import ThemeSwitchProvider from './theme/ThemeSwitchProvider';
+import ThemeSwitchContext from './theme/ThemeSwitchContext';
 import { ThemeProvider } from 'styled-components';
-import { LandingPage, DirectorPage, VolunteerPage} from 'routes';
-import { Main, Side, AppWrapper } from 'components/layout';
-import { Content, Header } from 'components/layout/app';
-import ThemeSwitchProvider from 'providers/theme/ThemeSwitchProvider';
-import ThemeSwitchContext from 'providers/theme/ThemeSwitchContext';
-import themes from 'providers/theme/themes';
-import FilterBar from 'components/filter/bar/FilterBar';
-import Navbar from 'components/navbar';
-import 'react-tabs/style/react-tabs.css';
+import themes from './theme/themes';
+import { GlobalStyles } from './theme/GlobalStyles';
+import Layout from './Layout';
 import './index.scss';
 
-const root = createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const client = new QueryClient();
 
-root.render(
-    <StrictMode>
-        <ThemeSwitchProvider>
-            <ThemeSwitchContext.Consumer>
-                {
-                ({theme})=> (
-                    <ThemeProvider theme={themes[theme]}>
-                        <AppWrapper>
-                            <Header>
-                                <Navbar />
-                            </Header>
-                            <Content>
-                                <Router>
-                                    <Main>
-                                        <Routes>
-                                            <Route path='/' element={<LandingPage />} />
-                                            <Route path='/director' element={<DirectorPage />} />
-                                            <Route path='/volunteer' element={<VolunteerPage />} />
-                                        </Routes>
-                                    </Main>
-                                    <Side>
-                                        <FilterBar />
-                                    </Side>
-                                </Router>
-                            </Content>
-                        </AppWrapper>
-                    </ThemeProvider>
-                )
-                }
-            </ThemeSwitchContext.Consumer>
-        </ThemeSwitchProvider>
-    </StrictMode>
+ReactDOM.render(
+  <QueryClientProvider client={client}>
+    <ThemeSwitchProvider>
+      <ThemeSwitchContext.Consumer>
+        {({theme}) => <ThemeProvider theme={themes[theme]}>
+          <GlobalStyles />
+          
+          <Layout>
+            <BrowserRouter>
+              <Routes>
+                <Route path='/' element={<HomePage />} />
+                <Route path='volunteer' element={null} />
+              </Routes>
+            </BrowserRouter>
+          </Layout>
+          
+        </ThemeProvider>}
+      </ThemeSwitchContext.Consumer>
+    </ThemeSwitchProvider>
+  </QueryClientProvider>,
+  document.getElementById('root'),
 );
