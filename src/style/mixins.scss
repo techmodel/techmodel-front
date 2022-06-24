@@ -1,0 +1,54 @@
+@import './variables';
+
+@mixin transition($properties: all) {
+    transition: $properties $animation-duration $animation-timing-function;
+}
+
+/**
+ * Converts a SASS map of css property names and values into CSS output.
+ * Nested maps will be processed recursively.
+ */
+@mixin map-to-props($map) {
+    @if type-of($map) == map {
+        @each $prop, $value in $map {
+            $inpected-value: meta.inspect($value);
+
+            @if type-of($inpected-value) != map {
+                #{$prop}: #{$inpected-value};
+            } @else {
+                @include map-to-props($value);
+            }
+        }
+    }
+}
+
+@mixin fit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+@mixin absolute-centralize {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin shadow-hover($color) {
+    box-shadow: 0 0 100px $color inset;
+}
+
+@mixin disabled {
+    opacity: 0.5;
+    pointer-events: none
+}
+
+@mixin rows-count-overflow($count) {
+    display: -webkit-box !important;
+    -webkit-line-clamp: $count;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

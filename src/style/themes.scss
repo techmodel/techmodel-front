@@ -1,0 +1,21 @@
+@import './variables';
+@import './functions';
+
+:root {
+    --theme-background-color: #{$default-theme-background-color};
+    --theme-background-color-rgb: #{as-rgb($default-theme-background-color)};
+    --theme-foreground-color: #{$default-theme-foreground-color};
+    --theme-foreground-color-rgb: #{as-rgb($default-theme-foreground-color)};
+    --theme-main-color-light: #{$default-theme-main-color-light};
+    --theme-main-color-light-rgb: #{as-rgb($default-theme-main-color-light)};
+    --theme-main-color-regular: #{$default-theme-main-color-regular};
+    --theme-main-color-regular-rgb: #{as-rgb($default-theme-main-color-regular)};
+    --theme-main-color-dark: #{$default-theme-main-color-dark};
+    --theme-main-color-dark-rgb: #{as-rgb($default-theme-main-color-dark)};
+    --theme-secondary-color-light: #{$default-theme-secondary-color-light};
+    --theme-secondary-color-light-rgb: #{as-rgb($default-theme-secondary-color-light)};
+    --theme-secondary-color-regular: #{$default-theme-secondary-color-regular};
+    --theme-secondary-color-regular-rgb: #{as-rgb($default-theme-secondary-color-regular)};
+    --theme-secondary-color-dark: #{$default-theme-secondary-color-dark};
+    --theme-secondary-color-dark-rgb: #{as-rgb($default-theme-secondary-color-dark)};
+}
