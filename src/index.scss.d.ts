@@ -5,7 +5,6 @@ interface CssExports {
   'baseFontSize': string;
   'borderRadius': string;
   'boxShadow': string;
-  'colorScheme': string;
   'defaultThemeBackgroundColor': string;
   'defaultThemeForegroundColor': string;
   'defaultThemeMainColorDark': string;
@@ -17,7 +16,6 @@ interface CssExports {
   'expandedTrendHeight': string;
   'gap': string;
   'halfPadding': string;
-  'mainColorScheme': string;
   'padding': string;
   'selectDropdownMaxHeight': string;
   'selectOptionHeight': string;

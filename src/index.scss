@@ -4,11 +4,11 @@
 @import './style/variables';
 @import './style/mixins';
 @import './style/themes';
-// @import './style/fontawesome/scss/fontawesome';
-// @import './style/fontawesome/scss/thin';
-// @import './style/fontawesome/scss/light';
-// @import './style/fontawesome/scss/regular';
-// @import './style/fontawesome/scss/solid';
+@import './style/fontawesome/scss/fontawesome';
+@import './style/fontawesome/scss/thin';
+@import './style/fontawesome/scss/light';
+@import './style/fontawesome/scss/regular';
+@import './style/fontawesome/scss/solid';
 
 :root {
     font-size: $base-font-size;

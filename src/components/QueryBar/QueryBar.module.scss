@@ -1,0 +1,23 @@
+.container {
+    min-height: 5.2rem;
+    background: var(--theme-secondary-color-regular);
+    font-size: 1.5rem;
+}
+
+.icon {
+    display: block;
+}
+
+.input {
+    font-size: inherit;
+    min-height: 20px;
+    height: 100%;
+    width: 20rem;
+    box-shadow: none !important;
+    padding: 0;
+
+    &:not(.hidden):empty::before {
+        content: attr(placeholder);
+        color: var(--theme-secondary-color-dark);
+    }
+}

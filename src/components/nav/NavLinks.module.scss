@@ -1,0 +1,39 @@
+@use 'sass:math';
+@import '../../style/mixins';
+@import '../../style/variables';
+
+$active-sign-height: $icon-size * 1.75;
+
+.activeSign {
+    @include transition;
+
+    position: absolute;
+    right: -$padding;
+    top: math.div(($active-sign-height - $icon-size), -2);
+    height: $active-sign-height;
+    width: 4px;
+    background: var(--theme-background-color);
+    opacity: 0;
+    border: {
+        top-left-radius: $border-radius;
+        bottom-left-radius: $border-radius;
+    }
+}
+
+.links {
+    position: relative;
+
+    .link {
+        &:global(.active) {
+            ~ .activeSign {
+                opacity: 1;
+            }
+
+            @for $index from 1 through 20 {
+                &:nth-of-type(#{$index}) ~ .activeSign {
+                    transform: translateY(calc(($index - 1) * ($icon-size + var(--gap))));
+                }
+            }
+        }
+    }
+}

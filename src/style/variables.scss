@@ -15,8 +15,8 @@ $select-dropdown-max-height: 20rem;
 $trend-height: 14.1rem;
 $expanded-trend-height: 22.05rem;
 $border-radius: 4px;
-$text-font-family: nunito, sans-serif;
-$title-font-family: poppins, sans-serif;
+$text-font-family: Assistant, sans-serif;
+$title-font-family: Assistant, sans-serif;
 $icons-font-family: 'Font Awesome 6 Pro', sans-serif;
 $animation-duration: 300ms;
 $animation-timing-function: ease-in-out;
@@ -27,55 +27,9 @@ $success-color: #40c484;
 $warning-color: #f4ae35;
 $error-color: #f43557;
 $info-color: #35e4f4;
-$gradient-first-color: #ff7378;
-$gradient-second-color: #ffc715;
-$colors-scheme: (
-    #84c66c,
-    #4ac2ac,
-    #00c5e0,
-    #f4939f,
-    #f8a66e,
-    #ffc718,
-    // --------
-    #c8ef5b,
-    #7ab9ff,
-    #fdd469,
-    #fd937d,
-    #0d9da9,
-    #8760ae,
-    #ff6bba,
-    #84766c,
-    #fd7777,
-    #ffacde,
-    #6b846e,
-    #4a4b58,
-    #6370b0,
-    #c19474,
-    #47d5e2,
-    #c5cbff,
-    #8b9aaf,
-);
-$main-color-dark-scheme: (
-    #84c66c,
-    #4ac2ac,
-    #00c5e0,
-    #f4939f,
-    #f8a66e,
-    #ffc718,
-    // #5295d2,
-    // #7300bf,
-    // #f4939f,
-    // #01326a,
-    // #ffc718,
-    // #00c5e0,
-    // #767bff,
-    // #de97ff,
-    // #2900cc,
-    // #f8a66e,
-);
 $default-theme-background-color: white;
-$default-theme-foreground-color: #060222;
-$default-theme-main-color-dark: #343434;
+$default-theme-foreground-color: #021422;
+$default-theme-main-color-dark: #152c4e;
 $default-theme-main-color-regular: #545454;
 $default-theme-main-color-light: #696886;
 $default-theme-secondary-color-light: #f4f6f7;
@@ -88,8 +42,6 @@ $default-theme-secondary-color-dark: #8b8b8b;
     gap: rem, $gap;
     padding: rem, $padding;
     halfPadding: rem, $half-padding;
-    colorScheme: string-list, $colors-scheme;
-    mainColorScheme: string-list, $main-color-dark-scheme;
     boxShadow: string, $box-shadow;
     textFontFamiliy: string, $text-font-family;
     titleFontFamiliy: string, $title-font-family;

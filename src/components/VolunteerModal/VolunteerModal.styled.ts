@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import Card from '../primitives/Card';
 
-export const VolunteerModal = styled(Card)`
+export const VolunteerModal = styled.div`
   overflow: auto;
   padding: 2em 2em;
   border-radius: 1em;

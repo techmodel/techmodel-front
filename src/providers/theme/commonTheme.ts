@@ -19,7 +19,7 @@ const defaultTheme = {
             small: '0.75em',
         },
         family: {
-            main: 'system-ui',
+            main: 'Assistent',
         },
     },
     button: {

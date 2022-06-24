@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Card from '../primitives/Card';
 
-export const FilterBarContainer = styled(Card)`
+export const FilterBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.25em;

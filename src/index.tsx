@@ -21,14 +21,14 @@ ReactDOM.render(
         {({theme}) => <ThemeProvider theme={themes[theme]}>
           <GlobalStyles />
           
-          <Layout>
-            <BrowserRouter>
+          <BrowserRouter>
+            <Layout>
               <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='volunteer' element={null} />
               </Routes>
-            </BrowserRouter>
-          </Layout>
+            </Layout>
+          </BrowserRouter>
           
         </ThemeProvider>}
       </ThemeSwitchContext.Consumer>
