@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import {
-    Nav,
     Logo,
     Controls,
     EditBtn,
@@ -8,6 +7,7 @@ import {
     Greeting,
     Username
 } from './Navbar.styled';
+import styles from './Navbar.module.scss'
 
 interface IProps {
     username?: string;
@@ -15,7 +15,7 @@ interface IProps {
 
 const Navbar: FC<IProps> = ({username = 'יפתח'}) => {
     return (
-        <Nav>
+        <nav className={styles.container}>
             <Logo>TechModel</Logo>
             <Controls>
                 <Greeting>
@@ -25,7 +25,7 @@ const Navbar: FC<IProps> = ({username = 'יפתח'}) => {
                 <LogoutBtn>התנתק</LogoutBtn>
                 <EditBtn>ערוך פרטים אישיים</EditBtn>
             </Controls>
-        </Nav>
+        </nav>
     )
 }
 

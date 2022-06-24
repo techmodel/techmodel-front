@@ -1,17 +1,5 @@
 import styled from 'styled-components';
 
-export const Nav = styled.nav`
-    height: 100%;
-    width: calc(100% - 40px);
-    background-color: rgb(71,145,255);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3),
-    inset 0 0 10px 5px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-`;
-
 export const Logo = styled.div`
     font-size: 2.5rem;
     font-weight: bold;

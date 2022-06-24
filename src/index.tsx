@@ -11,7 +11,7 @@ import themes from 'providers/theme/themes';
 import FilterBar from 'components/filter/bar/FilterBar';
 import Navbar from 'components/navbar';
 import 'react-tabs/style/react-tabs.css';
-import './index.css';
+import './index.scss';
 
 const root = createRoot(
   document.getElementById('root') as HTMLElement
