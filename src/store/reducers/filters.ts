@@ -13,34 +13,6 @@ type ActionHandler = {
 };
 
 const actionHandler: ActionHandler = {
-    [filtersActionTypes.enableFilter]: (
-            state: Filter<boolean | number | string>[],
-            { payload }: Action<{ field: string }>
-        ): Filter<boolean | number | string>[] => {
-        const filter = state.find(currentFilter => currentFilter.field === payload.field);
-
-        if (!filter) return state;
-
-        filter.isEnabled = true;
-        const otherFilters = state.filter(currentFitler => currentFitler.field !== payload.field);
-
-        return [ ...otherFilters, filter ];
-    },
-    
-    [filtersActionTypes.disableFilter]: (
-            state: Filter<boolean | number | string>[],
-            { payload }: Action<{ field: string }>
-        ): Filter<boolean | number | string>[] => {
-        const filter = state.find(currentFilter => currentFilter.field === payload.field);
-
-        if (!filter) return state;
-
-        filter.isEnabled = false;
-        const otherFilters = state.filter(currentFitler => currentFitler.field !== payload.field);
-
-        return [ ...otherFilters, filter ];
-    },
-
     [filtersActionTypes.setFilterValue]: <T extends boolean | number | string>(
             state: Filter<boolean | number | string>[],
             { payload }: Action<{ field: string, value: T }>
