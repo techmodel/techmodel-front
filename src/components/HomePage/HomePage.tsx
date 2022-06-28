@@ -68,7 +68,7 @@ const HomePage = () => {
     <div className={classNames(appStyles.verticalFlex, appStyles.unpaddedBox, appStyles.flexGrow1)}>
       <QueryBar value={query} setValue={setQuery} />
       {/* <FilterBar /> */}
-      <VolunteerList volunteers={volunteers}/>
+      <VolunteerList items={volunteers}/>
     </div>
   );
 };
