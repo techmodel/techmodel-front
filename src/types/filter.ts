@@ -1,5 +1,11 @@
 import { Dispatch, SetStateAction } from 'react';
 
+export interface Filter<T> {
+    field: string;
+    isEnabled: boolean;
+    value: T
+};
+
 export interface FilterInputProps<T> {
     value: T;
     setValue: Dispatch<SetStateAction<T>>;
