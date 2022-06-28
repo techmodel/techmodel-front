@@ -10,6 +10,7 @@ import { ThemeProvider } from 'styled-components';
 import themes from './theme/themes';
 import { GlobalStyles } from './theme/GlobalStyles';
 import Layout from './Layout';
+import './index.scss';
 
 const client = new QueryClient();
 
@@ -20,14 +21,14 @@ ReactDOM.render(
         {({theme}) => <ThemeProvider theme={themes[theme]}>
           <GlobalStyles />
           
-          <Layout>
-            <BrowserRouter>
+          <BrowserRouter>
+            <Layout>
               <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='volunteer' element={null} />
               </Routes>
-            </BrowserRouter>
-          </Layout>
+            </Layout>
+          </BrowserRouter>
           
         </ThemeProvider>}
       </ThemeSwitchContext.Consumer>

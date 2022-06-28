@@ -1,0 +1,8 @@
+@use 'sass:meta';
+@import '../style/fontawesome/scss/functions';
+@import '../style/fontawesome/scss/variables';
+@import './mixins';
+
+:export {
+    @include map-to-props($fa-icons);
+}

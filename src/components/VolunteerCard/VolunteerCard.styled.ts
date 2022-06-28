@@ -20,24 +20,6 @@ export const VolunteerCard = styled(Box)`
   }
 `;
 
-export const ProfilePhoto = styled.div`
-  border: #dadada 3px solid;
-  border-radius: 100em;
-  height: 5em;
-  width: 5em;
-
-  transition: transform 0.25s;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 100em;
-  }
-  :hover {
-    transform: scale(1.45) translateY(-0.5em);
-  }
-`;
-
 export const Username = styled.div`
   font-size: 1.25em;
   font-weight: 600;

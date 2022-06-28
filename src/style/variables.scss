@@ -1,0 +1,61 @@
+@use 'sass:math';
+@use 'sass:map';
+
+@function box-shadow($factor) {
+    @return 0 #{0.6rem * $factor} 1.6rem rgba(0, 0, 0, 10%);
+}
+
+$base-font-size: 10px;
+$gap: 1.2rem;
+$half-gap: math.div($gap, 2);
+$padding: 1.6rem;
+$half-padding: math.div($padding, 2);
+$select-option-height: 2.98rem;
+$select-dropdown-max-height: 20rem;
+$trend-height: 14.1rem;
+$expanded-trend-height: 22.05rem;
+$border-radius: 6px;
+$text-font-family: Assistant, sans-serif;
+$title-font-family: Assistant, sans-serif;
+$icons-font-family: 'Font Awesome 6 Pro', sans-serif;
+$animation-duration: 300ms;
+$animation-timing-function: ease-in-out;
+$box-shadow: box-shadow(1);
+$top-box-shadow: box-shadow(-1);
+$icon-size: 2.8rem;
+$success-color: #40c484;
+$warning-color: #f4ae35;
+$error-color: #f43557;
+$info-color: #35e4f4;
+$default-theme-background-color: white;
+$default-theme-foreground-color: #021422;
+$default-theme-main-color-dark: #152c4e;
+$default-theme-main-color-regular: #545454;
+$default-theme-main-color-light: #696886;
+$default-theme-secondary-color-light: #f4f6f7;
+$default-theme-secondary-color-regular: #d2d2d2;
+$default-theme-secondary-color-dark: #8b8b8b;
+
+:export {
+    baseFontSize: $base-font-size;
+    borderRadius: px, $border-radius;
+    gap: rem, $gap;
+    padding: rem, $padding;
+    halfPadding: rem, $half-padding;
+    boxShadow: string, $box-shadow;
+    textFontFamiliy: string, $text-font-family;
+    titleFontFamiliy: string, $title-font-family;
+    selectOptionHeight: rem, $select-option-height;
+    trendHeight: rem, $trend-height;
+    expandedTrendHeight: rem, $expanded-trend-height;
+    selectDropdownMaxHeight: rem, $select-dropdown-max-height;
+    animationDuration: ms, $animation-duration;
+    defaultThemeBackgroundColor: string, $default-theme-background-color;
+    defaultThemeForegroundColor: string, $default-theme-foreground-color;
+    defaultThemeMainColorDark: string, $default-theme-main-color-dark;
+    defaultThemeMainColorRegular: string, $default-theme-main-color-regular;
+    defaultThemeMainColorLight: string, $default-theme-main-color-light;
+    defaultThemeSecondaryColorLight: string, $default-theme-secondary-color-light;
+    defaultThemeSecondaryColorRegular: string, $default-theme-secondary-color-regular;
+    defaultThemeSecondaryColorDark: string, $default-theme-secondary-color-dark;
+}

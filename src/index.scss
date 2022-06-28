@@ -1,0 +1,155 @@
+/* stylelint-disable no-descending-specificity */
+@import 'normalize.css';
+@import 'the-new-css-reset/css/reset.css';
+@import './style/variables';
+@import './style/mixins';
+@import './style/themes';
+@import './style/fontawesome/scss/fontawesome';
+@import './style/fontawesome/scss/thin';
+@import './style/fontawesome/scss/light';
+@import './style/fontawesome/scss/regular';
+@import './style/fontawesome/scss/solid';
+
+:root {
+    font-size: $base-font-size;
+    font-family: $text-font-family;
+    -webkit-font-smoothing: antialiased;
+}
+
+#root {
+    height: 100vh;
+    display: flex;
+    gap: $gap;
+    padding: $padding;
+    background: var(--theme-secondary-color-light);
+    color: var(--theme-foreground-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $title-font-family;
+    user-select: none;
+    white-space: nowrap;
+    margin: 0;
+}
+
+h1 {
+    font: {
+        weight: 600;
+        size: 2rem;
+    }
+}
+
+h2 {
+    font: {
+        weight: 600;
+        size: 1.4rem;
+    }
+}
+
+h3 {
+    font: {
+        weight: 500;
+        size: 1.4rem;
+    }
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+h5,
+h6 {
+    letter-spacing: 0.02rem;
+    font-family: $text-font-family;
+}
+
+h5 {
+    color: var(--theme-secondary-color-dark);
+    font-size: 1.2rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+input {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+}
+
+$scrollbar-size: 0.4rem;
+$scrollbar-padding: $half-padding;
+
+::-webkit-scrollbar {
+    width: $scrollbar-size + $scrollbar-padding * 2;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    box-shadow: inset 0 0 $scrollbar-size $scrollbar-size var(--theme-secondary-color-regular);
+    border: solid $scrollbar-padding transparent;
+    min-height: 4rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 $scrollbar-size $scrollbar-size var(--theme-secondary-color-dark);
+}
+
+*:not(:hover)::-webkit-scrollbar {
+    display: none;
+}
+
+meter,
+input[type=radio] {
+    appearance: auto;
+}
+
+
+input[type=radio] {
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    font-size: 1rem;
+    color: var(--theme-main-color-dark);
+    width: 1.15em;
+    height: 1.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    border: 1px solid currentColor { radius: 50% };
+
+    &::before {
+        @include transition;
+
+        content: '';
+        width: 0.75em;
+        height: 0.75em;
+        border-radius: 50%;
+        opacity: 0;
+        transform: scale(.75);
+        box-shadow: inset 1em 1em currentColor;
+    }
+
+    &:hover::before {
+        opacity: .5;
+    }
+
+    &:checked {
+        &::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        &:hover::before {
+            opacity: .75;
+        }
+    }
+}

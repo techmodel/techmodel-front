@@ -1,18 +1,20 @@
 import React from 'react';
 import ItemList from '../primitives/ItemList';
 import VolunteerCard from '../VolunteerCard';
+import classNames from 'classnames' 
+import appStyles from '../../App.module.scss'
 
 import * as s from './VolunteerList.styled';
 
-export default function VolunteerList({ volunteers }: any) {
+interface Props {
+  items: any[]
+}
+
+export default function VolunteerList({ items }: Props) {
   return (
-    <ItemList>
-      {volunteers.map((volunteer: any) => (
-        <VolunteerCard volunteer={volunteer} key={volunteer.id} />
-      ))}
-      {volunteers.map((volunteer: any) => (
-        <VolunteerCard volunteer={volunteer} key={volunteer.id} />
-      ))}
-    </ItemList>
+    <div className={classNames(appStyles.horizontalFlex)}>
+      {items.concat(items).map((item, i) =>
+        <VolunteerCard item={item} key={i} />)}
+    </div>
   );
 }

@@ -9,7 +9,7 @@ export const OfferContainer = styled.div`
   background-color: #e7e7e7;
   flex-direction: column;
   align-items: end;
-  font-family: system-ui;
+  font-family: Assistent;
   min-width: 15em;
   flex-grow: 0;
 `;

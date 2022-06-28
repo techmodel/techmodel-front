@@ -37,7 +37,7 @@ declare module 'styled-components' {
                 small: '0.75em',
             },
             family: {
-                main: 'system-ui',
+                main: 'Assistent',
             },
         },
         button: {

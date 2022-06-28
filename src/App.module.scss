@@ -1,0 +1,312 @@
+@use 'sass:math';
+@use 'sass:list';
+@use 'sass:string';
+@import './style/variables';
+@import './style/mixins';
+@import './style/fontawesome/scss/functions';
+@import './style/fontawesome/scss/variables';
+
+@for $index from 0 through 6 {
+    #{'.padded' + $index + ', %padded' + $index} {
+        padding: $half-padding * $index;
+    }
+}
+
+.unpaddedBox,
+%unpaddedBox {
+    border-radius: $border-radius;
+}
+
+.box {
+    @extend %unpaddedBox;
+    @extend %padded2;
+}
+
+.shadowed {
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 5%);
+}
+
+.borderedUnpaddedBox {
+    @extend %unpaddedBox;
+
+    border: 1px solid var(--theme-secondary-color-regular);
+}
+
+.horizontalFlex,
+%flex {
+    --gap: #{$gap};
+
+    gap: var(--gap);
+    display: flex !important;
+}
+
+.verticalFlex {
+    @extend %flex;
+
+    flex-direction: column;
+}
+
+.justifyCenter {
+    justify-content: center;
+}
+
+.justifyEnd {
+    justify-content: flex-end;
+}
+
+.justifySpaceBetween {
+    justify-content: space-between;
+}
+
+.alignCenter {
+    align-items: center;
+}
+
+.alignBaseline {
+    align-items: baseline;
+}
+
+.fullBasis {
+    flex-basis: 100%;
+}
+
+.fullHeight {
+    height: 100%;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.backgroundBackground {
+    background: var(--theme-background-color);
+}
+
+.backgroundMain {
+    background: var(--theme-main-color-dark);
+}
+
+@for $index from 1 through 6 {
+    #{'.flexGrow' + $index} {
+        flex-grow: $index;
+    }
+}
+
+@for $index from 0 through 12 {
+    #{'.gap' + $index} {
+        --gap: #{math.div($gap * $index, 2)};
+
+        gap: var(--gap);
+    }
+}
+
+.input,
+%input {
+    @include transition;
+
+    padding: $half-padding;
+    border-radius: $border-radius;
+    height: 3.2rem;
+    font: {
+        family: $text-font-family;
+        size: 1.2rem;
+    }
+
+    &:hover:not(:focus) {
+        box-shadow: 0 0 0 100px rgba(var(--theme-foreground-color-rgb), 0.05) inset
+    }
+
+    &[disabled] {
+        opacity: 0.75;
+        pointer-events: none;
+    }
+}
+
+.button,
+%button {
+    @extend %input;
+
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    font-family: $title-font-family;
+    white-space: nowrap;
+
+    &[disabled] {
+        @include disabled;
+    }
+}
+
+.unclickedButton {
+    @extend %button;
+
+    cursor: default;
+
+    &:hover {
+        box-shadow: unset !important;
+    }
+}
+
+.unpaddedButton {
+    @extend %button;
+
+    padding: none !important;
+    padding: 0;
+    height: max-content;
+    color: var(--theme-secondary-color-dark);
+
+    &:hover {
+        box-shadow: none !important;
+        color: var(--theme-foreground-color);
+    }
+}
+
+.border,
+%border {
+    border: 1px solid rgba(var(--theme-secondary-color-regular-rgb), 0.5);
+}
+
+.hoveredBorder,
+%hoveredBorder {
+    @extend %border;
+
+    &:hover {
+        border-color: var(--theme-secondary-color-regular);
+    }
+}
+
+.buttonBorder {
+    @extend %button;
+    @extend %hoveredBorder;
+}
+
+.buttonPrimary,
+%buttonPrimary {
+    @extend %button;
+
+    padding: {
+        left: $padding * 2;
+        right: $padding * 2;
+    }
+
+    background-image: var(--theme-main-color-dark);
+    color: var(--theme-background-color);
+
+    &:hover {
+        box-shadow: 0 0 0 100px rgba(var(--theme-background-color-rgb), 0.15) inset
+    }
+}
+
+.buttonPrimaryOld {
+    @extend %button;
+
+    padding: {
+        left: $padding * 2;
+        right: $padding * 2;
+    }
+
+    background: var(--theme-main-color-dark);
+    color: var(--theme-background-color);
+
+    &:hover {
+        box-shadow: 0 0 0 100px rgba(var(--theme-background-color-rgb), 0.05) inset
+    }
+}
+
+.buttonSecondary {
+    @extend %button;
+
+    color: var(--theme-secondary-color-dark);
+
+    &:hover {
+        color: var(--theme-foreground-color);
+        box-shadow: unset;
+    }
+}
+
+.overflowHidden {
+    overflow: hidden;
+}
+
+.overflowOverlay {
+    overflow: overlay;
+}
+
+.clicked {
+    cursor: pointer;
+}
+
+@mixin component($content, $weight: 300, $colorized: false) {
+    font-size: 1.2rem;
+    color: inherit;
+    width: fit-content;
+    white-space: nowrap;
+    line-height: 1;
+
+    &::before {
+        content: string.quote($content);
+        display: inline-block;
+        margin-right: $half-padding;
+        font: {
+            family: $icons-font-family;
+            weight: $weight;
+            size: 1em;
+        }
+
+        @if $colorized {
+            color: var(--color);
+        }
+    }
+}
+
+.tag {
+    @include component($fa-var-diamond, 600, true);
+
+    padding: $half-gap $gap * 0.75;
+    border: 1px solid var(--color){ radius: 50px }
+}
+
+.unborder {
+    border: unset;
+}
+
+.category {
+    @include component($fa-var-cube);
+}
+
+.market {
+    @include component($fa-var-location-crosshairs);
+}
+
+.product {
+    @include component($fa-var-box-archive);
+}
+
+.brand {
+    @include component($fa-var-bag-shopping);
+}
+
+.tagType {
+    @include component(string.slice($fa-var-pipe, 2), 600, true);
+}
+
+.positionRelative {
+    position: relative;
+}
+
+.smallFont {
+    font-size: 1rem !important;
+}
+
+.mediumFont {
+    font-size: 1.2rem !important;
+}
+
+.largeFont {
+    font-size: 1.4rem !important;
+}
+
+.resetLineHeight {
+    line-height: 1;
+}
